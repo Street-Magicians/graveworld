@@ -5,8 +5,8 @@ body {
 
 h1 {
   color: var(--white);
-  font-size: 50px;
   text-align: center;
+  font-size: 300%;
 }
 
 img:hover {
