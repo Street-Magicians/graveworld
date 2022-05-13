@@ -1,0 +1,14 @@
+/* elements */
+html {
+  background-color: var(--cBlue);
+}
+
+h1 {
+  color: var(--white);
+  text-align: center;
+  font-size: 300%;
+}
+
+img:hover {
+  box-shadow: 0px 0px 15px var(--white);
+}

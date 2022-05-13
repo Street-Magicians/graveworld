@@ -3,8 +3,8 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
-
     email: String
+    password: String
     heroName: String
     charAvatar: String
     stamina: Int
@@ -16,7 +16,7 @@ const typeDefs = gql`
     name: String
   }
   type Auth {
-    token: ID
+    token: ID!
     user: User
   }
 
@@ -25,9 +25,16 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(email: String!, password: String!, heroName: String!): Auth
+    addUser(
+      email: String!
+      password: String!
+      heroName: String!
+      charAvatar: String!
+      stamina: Int
+    ): Auth
 
     updateUser(
+      charAvatar: String!
       email: String
       password: String
       heroName: String
@@ -40,5 +47,3 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-// addSpiritToken
-// write resolver that will handle adding spirit tokens and game wins to user info
