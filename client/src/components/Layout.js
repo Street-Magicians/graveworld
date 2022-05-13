@@ -1,5 +1,5 @@
 function Layout(props) {
-  return <main>{props.children}</main>;
+    return <main>{props.children}</main>;
 }
 
 export default Layout;
