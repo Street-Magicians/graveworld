@@ -8,8 +8,13 @@ const typeDefs = gql`
     heroName: String
     charAvatar: String
     stamina: Int
+    spiritTokens: [SpiritToken]
+    wins: Int
   }
-
+  type SpiritToken {
+    _id: ID
+    name: String
+  }
   type Auth {
     token: ID!
     user: User
@@ -28,7 +33,14 @@ const typeDefs = gql`
       stamina: Int
     ): Auth
 
-    updateUser(password: String, heroName: String, charAvatar: String): User
+    updateUser(
+      charAvatar: String!
+      email: String
+      password: String
+      heroName: String
+      spiritTokens: [ID]
+      wins: Int
+    ): User
 
     login(email: String!, password: String!): Auth
   }
