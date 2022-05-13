@@ -7,9 +7,14 @@ const typeDefs = gql`
     email: String
     heroName: String
     charAvatar: String
-    stamina: Number
+    stamina: Int
+    spiritTokens: [SpiritToken]
+    wins: Int
   }
-
+  type SpiritToken {
+    _id: ID
+    name: String
+  }
   type Auth {
     token: ID
     user: User
@@ -22,10 +27,18 @@ const typeDefs = gql`
   type Mutation {
     addUser(email: String!, password: String!, heroName: String!): Auth
 
-    updateUser(email: String, password: String, heroName: String): User
+    updateUser(
+      email: String
+      password: String
+      heroName: String
+      spiritTokens: [ID]
+      wins: Int
+    ): User
 
     login(email: String!, password: String!): Auth
   }
 `;
 
 module.exports = typeDefs;
+// addSpiritToken
+// write resolver that will handle adding spirit tokens and game wins to user info

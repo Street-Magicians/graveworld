@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
+const SpiritToken = require("./spiritToken");
 
 const userSchema = new Schema({
   email: {
@@ -26,6 +27,12 @@ const userSchema = new Schema({
     type: Number,
     default: 35,
   },
+  wins: {
+    type: Number,
+    default: 0,
+  },
+
+  spiritTokens: [SpiritToken.schema],
 });
 
 // set up pre-save middleware to create password
