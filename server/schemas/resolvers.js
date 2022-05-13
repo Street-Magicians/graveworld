@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
+const SpiritToken = require("../models/spiritToken");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -20,6 +21,16 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    addSpiritToken: async (parent, { spiritToken }, context) => {
+      console.log(context);
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, {
+          $push: { spiritTokens: spiritToken },
+        });
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
 
     updateUser: async (parent, args, context) => {
