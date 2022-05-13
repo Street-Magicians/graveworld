@@ -11,7 +11,7 @@ const resolvers = {
         return user;
       }
 
-      throw new AuthenticationError("Not logged in");
+      // throw new AuthenticationError("Not logged in");
     },
   },
   Mutation: {
