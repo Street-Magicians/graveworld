@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const SpiritToken = require("./spiritToken");
-
+const SpiritToken = require("./SpiritToken");
 const userSchema = new Schema({
   email: {
     type: String,
