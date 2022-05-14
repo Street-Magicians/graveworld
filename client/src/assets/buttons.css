@@ -1,0 +1,11 @@
+.n-border {
+  border: none;
+}
+
+.bkg-red {
+  background-color: rgb(166, 28, 28);
+}
+
+.zoom:hover {
+  transform: scale(102%);
+}
