@@ -2,21 +2,26 @@ import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   {
-    # user {
-    #   firstName
-    #   lastName
-    #   orders {
-    #     _id
-    #     purchaseDate
-    #     products {
-    #       _id
-    #       name
-    #       description
-    #       price
-    #       quantity
-    #       image
+    user {
+     email
+     heroName
+     charAvatar
+     stamina
+     wins
+     spiritToken {
+       _id
+       name
+     }
         }
       }
+    }
+  }
+`;
+
+export const QUERY_SPIRITTOKEN = gql`
+  {
+    spiritToken {
+      name
     }
   }
 `;
