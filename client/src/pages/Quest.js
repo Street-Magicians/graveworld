@@ -1,6 +1,8 @@
 import React from "react";
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 import "../assets/questPage.css";
+import Card from "../components/Card/Card";
+import Title from "../components/Title/Title";
 
 const Quest = () => {
   // page loads  only if user is logged in, otherwise redirect to login/signup
@@ -14,10 +16,13 @@ const Quest = () => {
       {/* displays icons of spirit tokens earned */}
       {/* text promps with lore and instructions  */}
       <section>
-        <div className="box">
-          <h3>Hero, we need your help!</h3>
-          <p>Lore summing up why spirits need help. Release the spirits adn they may give you a magical token of their appreciation. Use the tokens to banish the demon once and for all!</p>
-        </div>
+        <Title
+          title="Hero, we need your help!"
+          text="Lore summing up why spirits need help. Release the spirits adn they may give you a magical token of their appreciation. Use the tokens to banish the demon once and for all!"
+        />
+        <Card title="Spirit Challenge 1" text="summary of story behind this challenge" />
+        <Card title="Spirit Challenge 2" text="summary of story behind this challenge" />
+        <Card title="Spirit Challenge 3" text="summary of story behind this challenge" />
       </section>
       {/* comonent for SpiritChallenge 1  */}
       {/* component for SpiritChallenge 2  */}

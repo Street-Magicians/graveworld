@@ -2,12 +2,5 @@
 @import "./variables.css";
 
 html {
-  background-image: url(./images/bwSmoke.png);
-}
-
-h1,
-h2,
-h3,
-p {
-  color: var(--pink);
+  background-image: url(./images/spectralSmoke.jpeg);
 }
