@@ -3,16 +3,14 @@ import { gql } from "@apollo/client";
 export const QUERY_USER = gql`
   {
     user {
-     email
-     heroName
-     charAvatar
-     stamina
-     wins
-     spiritToken {
-       _id
-       name
-     }
-        }
+      email
+      heroName
+      charAvatar
+      stamina
+      wins
+      spiritToken {
+        _id
+        name
       }
     }
   }
