@@ -1,9 +1,8 @@
 /* elements */
 html {
-  background-image: url("../assets/images/nightSky.jpg");
+  background-image: url("../assets/images/backgrounds/creepy.png");
+  background-color: var(--navy);
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 h1 {
