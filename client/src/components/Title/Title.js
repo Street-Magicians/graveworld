@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 
+// Basic Title Card
 const Title = ({ title, text }) => {
   return (
     <div style={cardStyle} className="box">

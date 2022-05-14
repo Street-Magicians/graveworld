@@ -4,6 +4,7 @@ import "../assets/questPage.css";
 import Card from "../components/Card/Card";
 import Title from "../components/Title/Title";
 
+// Quest page is hub for how User navigates to 'Spirit Challenges'
 const Quest = () => {
   // page loads  only if user is logged in, otherwise redirect to login/signup
   // handleDisplayAvatar (to retrieve and display player avatar as 'return to profile' icon)

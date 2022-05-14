@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 
+// Card component contains basic title, text, button to navigate to asociated Challenge page, styling defaults
 const Card = ({ title, text }) => {
   return (
     <div style={cardStyle} className="box">
