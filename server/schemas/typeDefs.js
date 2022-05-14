@@ -1,6 +1,14 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  type SpiritToken {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    type: String
+  }
+
   type User {
     _id: ID
     email: String
@@ -10,14 +18,6 @@ const typeDefs = gql`
     stamina: Int
     spiritTokens: [SpiritToken]
     wins: Int
-  }
-
-  type SpiritToken {
-    _id: ID
-    name: String
-    description: String
-    image: String
-    type: String
   }
 
   input InputSpiritToken {
