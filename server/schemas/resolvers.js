@@ -23,7 +23,8 @@ const resolvers = {
       return { token, user };
     },
     addSpiritToken: async (parent, { spiritToken }, context) => {
-      console.log(context);
+      console.log(spiritToken);
+
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, {
           $push: { spiritTokens: spiritToken },
