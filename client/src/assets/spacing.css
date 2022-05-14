@@ -1,0 +1,44 @@
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.m-bottom {
+  margin-bottom: 2rem;
+}
+
+.m-top {
+  margin-top: 2rem;
+}
+
+.p-3 {
+  padding: 3;
+}
+
+.p-5 {
+  padding: 5;
+}
+
+.p-fixed {
+  position: absolute;
+  bottom: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-med {
+  width: 30%;
+}
+
+@media screen and (max-width: 767px) {
+  .miw-100\@sml {
+    min-width: 50%;
+  }
+}
