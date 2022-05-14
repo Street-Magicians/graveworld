@@ -11,7 +11,6 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 // import { Song } from "../src/static/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
-import store from "./utils/store";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
@@ -43,16 +42,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-<<<<<<< HEAD
-          <Layout className="App">
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-            <Footer />
-          </Layout>
-=======
           <Provider store={store}>
             <Layout className="App">
               <Header />
@@ -63,7 +52,6 @@ function App() {
               <Footer />
             </Layout>
           </Provider>
->>>>>>> main
         </div>
       </Router>
     </ApolloProvider>
