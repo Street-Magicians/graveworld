@@ -48,13 +48,13 @@ export const UPDATE_USER = gql`
       email: $email
       password: $password
       heroName: $heroName
-      spiritTokens: [ID]
+      spiritTokens: [InputSpiritToken]
       wins: $wins
     )
   }
 `;
 
-// export const ADD_SPIRIT_TOKEN = gql`
-// mutation addSpiritToken(
-//   $spiritToken: ID
-// )`;
+export const ADD_SPIRIT_TOKEN = gql`
+mutation addSpiritToken(
+  $spiritToken: InputSpiritToken
+)`;
