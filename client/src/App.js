@@ -18,6 +18,7 @@ import Home from "./pages/Home";
 
 import Login from "./pages/Login";
 import Quest from "./pages/Quest";
+import Challenge from "./pages/Challenge";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/quest" element={<Quest />} />
+                <Route path="/challenge" element={<Challenge />} />
               </Routes>
               <Footer />
             </Layout>
