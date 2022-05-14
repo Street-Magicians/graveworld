@@ -54,7 +54,7 @@ export const UPDATE_USER = gql`
   }
 `;
 
-export const ADD_SPIRIT_TOKEN = gql`
-mutation addSpiritToken(
-  spiritToken: ID
-)`;
+// export const ADD_SPIRIT_TOKEN = gql`
+// mutation addSpiritToken(
+//   $spiritToken: ID
+// )`;
