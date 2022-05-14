@@ -33,9 +33,7 @@ const typeDefs = gql`
       stamina: Int
     ): Auth
 
-    addSpiritToken(
-      spiritToken: ID
-    )
+    addSpiritToken(spiritToken: ID): SpiritToken
 
     updateUser(
       charAvatar: String!
