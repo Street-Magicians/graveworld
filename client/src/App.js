@@ -7,6 +7,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 // import { Song } from "../src/static/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
 // import store from "./utils/store";
@@ -41,14 +43,16 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Layout className="App">
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-            <Footer />
-          </Layout>
+          <Provider store={store}>
+            <Layout className="App">
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+              <Footer />
+            </Layout>
+          </Provider>
         </div>
       </Router>
     </ApolloProvider>
