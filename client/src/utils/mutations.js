@@ -33,3 +33,28 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const UPDATE_USER = gql`
+  mutation updateUser(
+    $charAvatar: String!
+    $email: String
+    $password: String
+    $heroName: String
+    $spiritTokens: [ID]
+    $wins: Int
+  ) {
+    updateUser(
+      charAvatar: $charAvatar
+      email: $email
+      password: $password
+      heroName: $heroName
+      spiritTokens: [ID]
+      wins: $wins
+    )
+  }
+`;
+
+// export const ADD_SPIRIT_TOKEN = gql`
+// mutation addSpiritToken(
+//   $spiritToken: ID
+// )`;

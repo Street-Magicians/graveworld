@@ -1,0 +1,31 @@
+.ta-c {
+  text-align: center;
+}
+
+.c-white {
+  color: white;
+}
+
+.font-reg {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+}
+
+.font-reg-i {
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.font-bold {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.l-spacing {
+  letter-spacing: 3px;
+}
