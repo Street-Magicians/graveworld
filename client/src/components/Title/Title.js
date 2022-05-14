@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Title = ({ title, text1, text2 }) => {
   return (
     <div style={cardStyle} className="box">
-      <h3 className="has-text-weight-semibold is-size-4">{title}</h3>
+      <h3 className="has-text-weight-semibold is-size-5">{title}</h3>
       <p>{text1}</p>
       <p>{text2}</p>
     </div>

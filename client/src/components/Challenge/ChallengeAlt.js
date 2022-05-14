@@ -65,7 +65,10 @@ const ChallengeAlt = () => {
         <>
           <div className="">
             <div className="">
-              <span>You are looking for element {currentQuestion + 1}</span>/{questions.length}
+              <p></p>
+              <p>
+                <span>You are looking for clue {currentQuestion + 1}</span>/{questions.length}
+              </p>
             </div>
             <div className="question-text">{questions[currentQuestion].questionText}</div>
           </div>
