@@ -14,6 +14,9 @@ const typeDefs = gql`
   type SpiritToken {
     _id: ID
     name: String
+    description: String
+    image: String
+    type: String
   }
   type Auth {
     token: ID!
@@ -22,6 +25,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    spiritToken: SpiritToken
   }
 
   type Mutation {
@@ -29,7 +33,7 @@ const typeDefs = gql`
       email: String!
       password: String!
       heroName: String!
-      charAvatar: String!
+      charAvatar: Int!
       stamina: Int
     ): Auth
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const spiritToken = new Schema({
+const spiritTokenSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -19,6 +19,6 @@ const spiritToken = new Schema({
   },
 });
 
-const SpiritToken = mongoose.model("SpiritToken", spiritToken);
+const SpiritToken = mongoose.model("SpiritToken", spiritTokenSchema);
 
 module.exports = SpiritToken;
