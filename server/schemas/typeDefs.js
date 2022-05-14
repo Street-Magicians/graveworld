@@ -11,6 +11,7 @@ const typeDefs = gql`
     spiritTokens: [SpiritToken]
     wins: Int
   }
+
   type SpiritToken {
     _id: ID
     name: String
@@ -18,6 +19,7 @@ const typeDefs = gql`
     image: String
     type: String
   }
+
   type Auth {
     token: ID!
     user: User
@@ -29,24 +31,11 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(
-      email: String!
-      password: String!
-      heroName: String!
-      charAvatar: Int!
-      stamina: Int
-    ): Auth
+    addUser(email: String!, password: String!, heroName: String!, charAvatar: Int!, stamina: Int): Auth
 
     addSpiritToken(spiritToken: ID): SpiritToken
 
-    updateUser(
-      charAvatar: String!
-      email: String
-      password: String
-      heroName: String
-      spiritTokens: [ID]
-      wins: Int
-    ): User
+    updateUser(charAvatar: String!, email: String, password: String, heroName: String, spiritTokens: [ID], wins: Int): User
 
     login(email: String!, password: String!): Auth
   }

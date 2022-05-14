@@ -1,3 +1,5 @@
+// This component isn't really part of the app; Sarah was using it to mess around
+
 const Demon = () => {
   const onClick = () => {
     window.alert("Check the console");

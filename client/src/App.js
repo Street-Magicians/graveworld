@@ -1,11 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
@@ -17,6 +12,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 
 import Login from "./pages/Login";
+import Quest from "./pages/Quest";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,6 +44,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/quest" element={<Quest />} />
               </Routes>
               <Footer />
             </Layout>
