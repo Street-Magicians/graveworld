@@ -1,5 +1,9 @@
 const Footer = () => {
-    return <h3>Made with ❤️</h3>;
+  return (
+    <div class="b-grey p-fixed p-5 w-100">
+      <h3 class="center j-center">Made with ❤️</h3>
+    </div>
+  );
 };
 
 export default Footer;
