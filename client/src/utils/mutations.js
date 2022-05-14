@@ -1,23 +1,33 @@
 import { gql } from "@apollo/client";
 
 export const LOGIN = gql`
-  mutation login($email: String!, $password: String!) {
+  mutation Mutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
-        _id
+        email
+        heroName
+        charAvatar
+        stamina
+        spiritTokens {
+          name
+          description
+          image
+          type
+        }
+        wins
       }
     }
   }
 `;
 
 export const ADD_USER = gql`
-  mutation addUser(
+  mutation Mutation(
     $email: String!
     $password: String!
     $heroName: String!
-    $charAvatar: String!
-    $stamina: String!
+    $charAvatar: Int!
+    $stamina: Int
   ) {
     addUser(
       email: $email
@@ -28,7 +38,17 @@ export const ADD_USER = gql`
     ) {
       token
       user {
-        _id
+        email
+        heroName
+        charAvatar
+        stamina
+        spiritTokens {
+          name
+          description
+          image
+          type
+        }
+        wins
       }
     }
   }
@@ -55,6 +75,14 @@ export const UPDATE_USER = gql`
 `;
 
 export const ADD_SPIRIT_TOKEN = gql`
-mutation addSpiritToken(
-  $spiritToken: InputSpiritToken
-)`;
+  mutation Mutation($spiritToken: InputSpiritToken) {
+    addSpiritToken(spiritToken: $spiritToken) {
+      spiritTokens {
+        name
+        description
+        image
+        type
+      }
+    }
+  }
+`;
