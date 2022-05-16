@@ -29,20 +29,28 @@
   bottom: 0;
 }
 
-.w-100 {
-  width: 100%;
+.w-5 {
+  width: 5%;
 }
 
-.w-50 {
-  width: 50%;
+.w-10 {
+  width: 10%;
+}
+
+.w-20 {
+  width: 20%;
 }
 
 .w-med {
   width: 30%;
 }
 
-.w-10 {
-  width: 10%;
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {

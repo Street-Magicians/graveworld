@@ -3,6 +3,7 @@ import React from "react";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
 import Button from "../components/Button/Button";
+import HeroBtn from "../components/HeroBtn/HeroBtn";
 
 // Quest page is hub for how User navigates to 'Spirit Challenges'
 const Quest = () => {
@@ -13,38 +14,40 @@ const Quest = () => {
 
   return (
     <>
-      {/* character icon to navigate back to profile component */}
-      {/* displays icons of spirit tokens earned */}
-      {/* text promps with lore and instructions  */}
+      {/* TODO: MAKE THIS COMPONENT DYNAMIC BASED ON USER AVATAR AND STAMINA!! */}
+      <section className="m-4">
+        <HeroBtn link="/profile" />
+      </section>
+
       {/* Challenge 1: Desert Ruin */}
       <section>
         <Title
           title="Graveworld needs you, Hero!"
           text1="The demon Relphax has breached into Graveworld and threatens the realm. Only spirit magic can banish him once and for all. Seek aid from the spirits that reside throughout Graveworld then confront the demon!"
         />
-        <div className="box b-taupe c-navy has-text-centered m-4 p-2">
+        <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card
             title="The Desert Ruin"
             text="A once-proud castle torn asunder by time offers protection from an approaching storm. Perhaps you’ll find something inside to help you on your journey"
             className="b-taupe c-navy"
           />
-          <Button text="Explore the ruin" link="/Challenge1" />
+          <Button text="Explore the ruin" link="/theruin" />
         </div>
       </section>
 
       {/* Challenge 2: Ship Graveyard */}
       <section>
-        <div className="box b-taupe c-navy has-text-centered m-4 p-2">
+        <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Ship Graveyard" text="Decaying ships create a land mass that may be worth checking out; perhaps there will be treasure!" className="b-taupe c-navy" />
-          <Button text="Explore the ruin" link="/Challenge1" />
+          <Button text="Explore the graveyard" link="/theruin" />
         </div>
       </section>
 
       {/* Challenge 3: Evernight Forest */}
       <section>
-        <div className="box b-taupe c-navy has-text-centered m-4 p-2">
+        <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Evernight Forest" text="This forest is rumored to be haunted...ghosts are just friends without bodies, right?" className="b-taupe c-navy" />
-          <Button text="Explore the ruin" link="/Challenge1" />
+          <Button text="Explore the forest" link="/theruin" />
         </div>
       </section>
 

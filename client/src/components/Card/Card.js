@@ -6,7 +6,7 @@ const Card = ({ title, text }) => {
   return (
     <>
       <h3 className="has-text-weight-semibold">{title}</h3>
-      <p>{text}</p>
+      <p className="pt-2">{text}</p>
     </>
   );
 };

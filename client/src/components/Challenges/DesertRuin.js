@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 
-const ChallengeAlt = () => {
+const DesertRuin = () => {
   const questions = [
     {
       questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
@@ -59,8 +59,10 @@ const ChallengeAlt = () => {
     }
   };
 
+  // TODO: Rework to describe: If (ShowQuizEnd is true && score === 3/3 {display success message} else if (ShowQuizEnd is true && score ==/3) {display failure message} else if (there are still more questions, continue quiz)
   return (
     <div className="box m-2">
+      {/* if ShowQuizEnd is true (once all questions have been answered), display message */}
       {showQuizEnd ? (
         <div className="has-text-centered">
           <img src={require("./placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
@@ -69,10 +71,11 @@ const ChallengeAlt = () => {
             their boon: The Flame Token. You are one step closer to defeating the Demon Relphax!
           </p>
 
-          <Button text="Return to Quests" link="/Quest" />
-          <Button text="Return to Profile" link="/Profile" />
+          <Button text="Return to Quests" link="/quest" />
+          <Button text="Return to Profile" link="/profile" />
         </div>
       ) : (
+        // If ShowQuizEnd is not true (and there are more questions), continue quiz
         <>
           <div className="has-text-centered">
             <div className="">
@@ -97,4 +100,4 @@ const ChallengeAlt = () => {
   );
 };
 
-export default ChallengeAlt;
+export default DesertRuin;
