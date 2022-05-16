@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import Button from "../Button/Button";
 
 const ChallengeAlt = () => {
   const questions = [
     {
-      questionText: "I am a giant born from the sea, when I belch people flee. My blood destroys wherever it flows, but when it clots my body grows",
+      questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
       answerOptions: [
         { answerText: "River", isCorrect: false },
         { answerText: "Volcano", isCorrect: true },
@@ -15,14 +16,14 @@ const ChallengeAlt = () => {
       questionText: "You love to watch me rise from sleep, but look my way and you will weep. You need me to have life at all, but as I grow you'll one day fall.",
       answerOptions: [
         { answerText: "A Dog", isCorrect: false },
-        { answerText: "Birth", isCorrect: false },
+        { answerText: "A Baby", isCorrect: false },
         { answerText: "Dreams", isCorrect: false },
         { answerText: "The Sun", isCorrect: true },
       ],
     },
     {
       questionText:
-        "I'm looking for my heart, it's red through and through. It has no mouth, but would swiftly consume you. It fears water but befriends the breeze. If you find it, I will move on with ease!",
+        "I'm looking for my heart, it's red through and through. It has no mouth, but would swiftly consume you. It fears water but befriends the breeze. If you find it, I will be at ease",
       answerOptions: [
         { answerText: "Rubies", isCorrect: false },
         { answerText: "Flamin' Hot Cheetos", isCorrect: false },
@@ -52,30 +53,42 @@ const ChallengeAlt = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowQuizEnd(true);
+      // if score = questions.length, then
+      // push token to user's spiritToken array in DB and
+      // else show 'better luck next time!' message and redirect to Quest page
     }
   };
 
   return (
-    <div className="">
+    <div className="box m-2">
       {showQuizEnd ? (
-        <div className="">
-          You found {score} out of {questions.length} elements!
+        <div className="has-text-centered">
+          <img src={require("./placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+          <p className="m-2">
+            Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant you
+            their boon: The Flame Token. You are one step closer to defeating the Demon Relphax!
+          </p>
+
+          <Button text="Return to Quests" link="/Quest" />
+          <Button text="Return to Profile" link="/Profile" />
         </div>
       ) : (
         <>
-          <div className="">
+          <div className="has-text-centered">
             <div className="">
               <p></p>
               <p>
-                <span>You are looking for clue {currentQuestion + 1}</span>/{questions.length}
+                <span>You are solving clue {currentQuestion + 1}</span>/{questions.length}
               </p>
             </div>
-            <div className="question-text">{questions[currentQuestion].questionText}</div>
+            <div className="py-4">{questions[currentQuestion].questionText}</div>
           </div>
-          <div className="">
-            {/* loops through answers array for question and displays as buttons */}
+          <div className="columns is-centered is-multiline ">
+            {/* loops through question's answers array and displays as buttons */}
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <button onClick={() => handleAnswerButton(answerOption.isCorrect)}>{answerOption.answerText}</button>
+              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
+                {answerOption.answerText}
+              </p>
             ))}
           </div>
         </>

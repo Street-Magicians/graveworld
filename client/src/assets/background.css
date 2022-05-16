@@ -1,6 +1,6 @@
 /* elements */
 html {
-  background-image: url("../assets/images/backgrounds/creepy.png");
+  /* background-image: url("../assets/images/backgrounds/creepy.png"); */
   background-color: var(--navy);
   background-size: cover;
 }
@@ -15,6 +15,31 @@ img:hover {
   box-shadow: 0px 0px 15px var(--white);
 }
 
+/* Atomic classes in alpha order */
 .b-grey {
   background-color: rgb(208, 208, 208);
+}
+
+.b-lavender {
+  background-color: var(--lavender);
+}
+
+.b-navy {
+  background-color: var(--navy);
+}
+
+.b-pink {
+  background-color: var(--pink);
+}
+
+.b-rose {
+  background-color: var(--rose);
+}
+
+.b-taupe {
+  background-color: var(--taupe);
+}
+
+.b-teal {
+  background-color: var(--teal);
 }

@@ -1,14 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import "./assets/main.css";
+
 // import { Song } from "../src/static/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
 import Footer from "./components/Footer";
@@ -18,7 +15,7 @@ import Home from "./pages/Home";
 
 import Login from "./pages/Login";
 import Quest from "./pages/Quest";
-import Challenge from "./pages/Challenge";
+import Challenge from "./pages/Challenge1";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
