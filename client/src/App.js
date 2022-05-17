@@ -1,10 +1,8 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
-// import { Song } from "../src/static/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
@@ -14,8 +12,12 @@ import AccountBox from "./components/AccountBox";
 import Login from "./pages/Login";
 import Quest from "./pages/Quest";
 import Challenge from "./pages/Challenge";
+<<<<<<< HEAD
+import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+=======
 import Home from "./pages/Home";
 import AccountProvider from "./components/AccountBox/accountContext";
+>>>>>>> main
 
 const httpLink = createHttpLink({
     uri: "/graphql",
@@ -36,69 +38,44 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
-function App() {
-    return (
-        <ApolloProvider client={client}>
-            <AccountProvider>
-                <Router>
-                    <div>
-                        <Layout className="App">
-                            <Header />
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/login" element={<AccountBox />} />
-                                <Route path="/login" element={<Login />} />
-                                <Route path="/quest" element={<Quest />} />
-                                <Route path="/challenge" element={<Challenge />} />
-                            </Routes>
-                            <Footer />
-                        </Layout>
-                    </div>
-                </Router>
-            </AccountProvider>
-        </ApolloProvider>
-    );
+function playSong() {
+  if (document.getElementById("audio").muted === true) {
+    document.getElementById("audio").muted = false;
+  } else {
+    document.getElementById("audio").muted = true;
+  }
 }
 
-// Audio
-// class Song extends Component {
-//   // Create state
-//   state = {
-//     // Get audio file in a variable
-//     audio: new Audio(Song),
-
-//     // Set initial state of song
-//     isPlaying: false,
-//   };
-
-//   // Main function to handle both play and pause operations
-//   playPause = () => {
-//     // Get state of song
-//     let isPlaying = this.state.isPlaying;
-
-//     if (isPlaying) {
-//       // Pause the song if it is playing
-//       this.state.audio.pause();
-//     } else {
-//       // Play the song if it is paused
-//       this.state.audio.play();
-//     }
-
-//     // Change the state of song
-//     this.setState({ isPlaying: !isPlaying });
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         {/* Show state of song on website */}
-//         <p>{this.state.isPlaying ? "Song is Playing" : "Song is Paused"}</p>
-
-//         {/* Button to call our main function */}
-//         <button onClick={this.playPause}>Play | Pause</button>
-//       </div>
-//     );
-//   }
-// }
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <Provider store={store}>
+            <Layout className="App">
+              <Header />
+              <audio
+                style={{ visibility: "hidden" }}
+                id="audio"
+                controls
+                autoPlay={true}
+                src={Tiger}
+              ></audio>
+              <button onClick={playSong}>Play/Pause</button>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<AccountBox />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/quest" element={<Quest />} />
+                <Route path="/challenge" element={<Challenge />} />
+              </Routes>
+              <Footer />
+            </Layout>
+          </Provider>
+        </div>
+      </Router>
+    </ApolloProvider>
+  );
+}
 
 export default App;
