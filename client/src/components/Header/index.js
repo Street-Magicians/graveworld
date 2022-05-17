@@ -1,5 +1,5 @@
 const Header = () => {
-  return <header></header>;
+  return <header className="column is-narrow"></header>;
 };
 
 export default Header;

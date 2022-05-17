@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from "react";
 import Button from "../Button/Button";
-import { UPDATE_TOKENS, UPDATE_STAMINA } from "./../../utils/actions";
+import { UPDATE_TOKENS, UPDATE_STAMINA } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const DesertRuin = () => {
+const DesertQuiz = () => {
   const questions = [
     {
       questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
@@ -79,24 +79,27 @@ const DesertRuin = () => {
 
   // TODO: comment to describe this
   return (
-    <div className="box m-4">
+    <section className="box mx-4 my-2">
       {/* if ShowQuizEnd is true (once all questions have been answered), display message */}
       {showQuizEnd ? (
         <div className="has-text-centered">
           {score === 3 ? (
             <>
-              <img src={require("./placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
-              <p className="m-2">
+              <img src={require("./../../assets/images/sprites/placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+              <p className="c-navy m-2">
                 Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
                 you their boon: The Flame Token. You are one step closer to defeating the Demon Relphax!
               </p>
+              <Button text="Return to Quests" link="/quest" />
+              <Button text="Return to Profile" link="/profile" />
             </>
           ) : (
-            <div>Fail!</div>
+            <>
+              <p className="c-navy m-2">"Hmmm, that doesn't seem right," the spirit says, "Let's keep trying, though. We'll figure it out soon, I just know it!"</p>
+              <Button text="Return to Quests" link="/quest" />
+              <Button text="Try Again" link="/theruin" />
+            </>
           )}
-
-          <Button text="Return to Quests" link="/quest" />
-          <Button text="Return to Profile" link="/profile" />
         </div>
       ) : (
         // If ShowQuizEnd is not true (and there are more questions), continue quiz
@@ -104,8 +107,8 @@ const DesertRuin = () => {
           <div className="has-text-centered">
             <div className="">
               <p></p>
-              <p>
-                <span>You are solving clue {currentQuestion + 1}</span>/{questions.length}
+              <p className="has-text-weight-semibold">
+                You are solving clue {currentQuestion + 1}/{questions.length}
               </p>
             </div>
             <div className="py-4">{questions[currentQuestion].questionText}</div>
@@ -120,8 +123,8 @@ const DesertRuin = () => {
           </div>
         </>
       )}
-    </div>
+    </section>
   );
 };
 
-export default DesertRuin;
+export default DesertQuiz;

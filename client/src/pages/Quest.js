@@ -13,7 +13,7 @@ const Quest = () => {
   // handleDemonChallenge (if user has 3 SpiritTokens OR 0 stamina display 'demon challenge component)
 
   return (
-    <>
+    <main>
       {/* TODO: MAKE THIS COMPONENT DYNAMIC BASED ON USER AVATAR AND STAMINA!! */}
       <section className="m-4">
         <HeroBtn link="/profile" />
@@ -56,7 +56,7 @@ const Quest = () => {
       {/* component for SpiritChallenge 3  */}
       {/* when 3 tokens are earned, display DemonChallenge component */}
       {/* footer component */}
-    </>
+    </main>
   );
 };
 

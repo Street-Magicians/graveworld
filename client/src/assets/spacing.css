@@ -8,6 +8,10 @@
   flex: 1;
 }
 
+.height-100vh {
+  height: 100vh;
+}
+
 .j-center {
   justify-content: center;
 }
@@ -39,6 +43,10 @@
 
 .w-10 {
   width: 10%;
+}
+
+.w-15 {
+  width: 15%;
 }
 
 .w-20 {

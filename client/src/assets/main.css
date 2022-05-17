@@ -14,4 +14,10 @@
 
 /* phone */
 @media (max-width: 576px) {
+  .mqPh-w15 {
+    width: 15%;
+  }
+  .mqPh-w10 {
+    width: 50%;
+  }
 }

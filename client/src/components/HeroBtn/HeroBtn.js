@@ -5,7 +5,7 @@ const HeroBtn = ({ link }) => {
   return (
     <>
       <a href={link} className="">
-        <img src={require("./char1.gif")} alt="an 8-bit rendering of a fantasy person" className="w-5" />
+        <img src={require("./../../assets/images/sprites/char1.gif")} alt="an 8-bit rendering of a fantasy person" className="w-10 mqPh-w15" />
       </a>
       <p className="c-pink">Stamina: -/35</p>
     </>
