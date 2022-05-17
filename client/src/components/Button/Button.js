@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-const Button = ({ text }) => {
+const Button = ({ text, handleSelection }) => {
   return (
-    <button style={buttonStyle} className="button has-text-weight-semibold" href="">
+    <button onClick={handleSelection} style={buttonStyle} className="button has-text-weight-semibold">
       {text}
     </button>
   );

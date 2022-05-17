@@ -1,7 +1,10 @@
 /* elements */
-/* html {
-  background-color: var(--cBlue);
-} */
+html {
+  background-image: url("../assets/images/nightSky.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 h1 {
   color: var(--white);
