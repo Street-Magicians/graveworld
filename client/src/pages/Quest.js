@@ -39,7 +39,7 @@ const Quest = () => {
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Ship Graveyard" text="Decaying ships create a land mass that may be worth checking out; perhaps there will be treasure!" className="b-taupe c-navy" />
-          <Button text="Explore the graveyard" link="/theruin" />
+          <Button text="Explore the graveyard" link="/thegraveyard" />
         </div>
       </section>
 
@@ -47,7 +47,7 @@ const Quest = () => {
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Evernight Forest" text="This forest is rumored to be haunted...ghosts are just friends without bodies, right?" className="b-taupe c-navy" />
-          <Button text="Explore the forest" link="/theruin" />
+          <Button text="Explore the forest" link="/theforest" />
         </div>
       </section>
 

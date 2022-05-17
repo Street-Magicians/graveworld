@@ -4,6 +4,10 @@
   display: block;
 }
 
+.f-1 {
+  flex: 1;
+}
+
 .j-center {
   justify-content: center;
 }
@@ -47,6 +51,10 @@
 
 .w-50 {
   width: 50%;
+}
+
+.w-75 {
+  width: 75%;
 }
 
 .w-100 {

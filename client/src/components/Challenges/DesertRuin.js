@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Button from "../Button/Button";
+import { UPDATE_TOKENS, UPDATE_STAMINA } from "./../../utils/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const DesertRuin = () => {
   const questions = [
@@ -33,6 +35,9 @@ const DesertRuin = () => {
     },
   ];
 
+  const dispatch = useDispatch();
+  // const state = useSelector((state) => state);
+
   //   state object holds the current question the user is answering. Starts at 0 (the first question)
   const [currentQuestion, setCurrentQuestion] = useState(0);
   // state object stores whether we want to show score messge
@@ -53,23 +58,42 @@ const DesertRuin = () => {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowQuizEnd(true);
-      // if score = questions.length, then
+      // if score === 3
+      // call update user mutation
       // push token to user's spiritToken array in DB and
       // else show 'better luck next time!' message and redirect to Quest page
+      let tokens = "Flame Token";
+      let stamina = 30;
+      // dispatch the Update_Tokens action to update the global state (spirit tokens)
+      dispatch({
+        type: UPDATE_TOKENS,
+        spiritTokens: [...tokens],
+      });
+      // dispatch the Update_STAMINA action to update the global state (user's stamina)
+      dispatch({
+        type: UPDATE_STAMINA,
+        stamina: stamina,
+      });
     }
   };
 
-  // TODO: Rework to describe: If (ShowQuizEnd is true && score === 3/3 {display success message} else if (ShowQuizEnd is true && score ==/3) {display failure message} else if (there are still more questions, continue quiz)
+  // TODO: comment to describe this
   return (
-    <div className="box m-2">
+    <div className="box m-4">
       {/* if ShowQuizEnd is true (once all questions have been answered), display message */}
       {showQuizEnd ? (
         <div className="has-text-centered">
-          <img src={require("./placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
-          <p className="m-2">
-            Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant you
-            their boon: The Flame Token. You are one step closer to defeating the Demon Relphax!
-          </p>
+          {score === 3 ? (
+            <>
+              <img src={require("./placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+              <p className="m-2">
+                Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
+                you their boon: The Flame Token. You are one step closer to defeating the Demon Relphax!
+              </p>
+            </>
+          ) : (
+            <div>Fail!</div>
+          )}
 
           <Button text="Return to Quests" link="/quest" />
           <Button text="Return to Profile" link="/profile" />
@@ -89,7 +113,7 @@ const DesertRuin = () => {
           <div className="columns is-centered is-multiline ">
             {/* loops through question's answers array and displays as buttons */}
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
+              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
                 {answerOption.answerText}
               </p>
             ))}
