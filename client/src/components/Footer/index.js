@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Footer = () => {
   return (
     <footer className="column footer is-narrow is-flex-direction-column b-lavender ">
