@@ -1,20 +1,25 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
-// import { Song } from "../src/static/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+import "./assets/main.css";
 
+// components
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import AccountBox from "./components/AccountBox";
 
+// pages
 import Login from "./pages/Login";
 import Quest from "./pages/Quest";
-import Challenge from "./pages/Challenge";
 import Home from "./pages/Home";
+import TheRuin from "./pages/TheRuin";
+import TheGraveyard from "./pages/TheGraveyard";
+import TheForest from "./pages/TheForest";
+
+import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 import AccountProvider from "./components/AccountBox/accountContext";
 
 const httpLink = createHttpLink({
@@ -36,69 +41,42 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
+function playSong() {
+    if (document.getElementById("audio").muted === true) {
+        document.getElementById("audio").muted = false;
+    } else {
+        document.getElementById("audio").muted = true;
+    }
+}
+
 function App() {
     return (
         <ApolloProvider client={client}>
             <AccountProvider>
                 <Router>
-                    <div>
-                        <Layout className="App">
-                            <Header />
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route path="/login" element={<AccountBox />} />
-                                <Route path="/login" element={<Login />} />
-                                <Route path="/quest" element={<Quest />} />
-                                <Route path="/challenge" element={<Challenge />} />
-                            </Routes>
-                            <Footer />
-                        </Layout>
+                    <div className="columns height-100vh is-flex-direction-column">
+                        <Provider store={store}>
+                            <Layout className="App">
+                                <Header />
+                                <audio style={{ visibility: "hidden" }} id="audio" controls autoPlay={true} src={Tiger}></audio>
+                                <button onClick={playSong}>Play/Pause</button>
+                                <Routes>
+                                    <Route path="/" element={<Home />} />
+                                    <Route path="/login" element={<AccountBox />} />
+                                    <Route path="/login" element={<Login />} />
+                                    <Route path="/quest" element={<Quest />} />
+                                    <Route path="/theruin" element={<TheRuin />} />
+                                    <Route path="/thegraveyard" element={<TheGraveyard />} />
+                                    <Route path="/theforest" element={<TheForest />} />
+                                </Routes>
+                                <Footer />
+                            </Layout>
+                        </Provider>
                     </div>
                 </Router>
             </AccountProvider>
         </ApolloProvider>
     );
 }
-
-// Audio
-// class Song extends Component {
-//   // Create state
-//   state = {
-//     // Get audio file in a variable
-//     audio: new Audio(Song),
-
-//     // Set initial state of song
-//     isPlaying: false,
-//   };
-
-//   // Main function to handle both play and pause operations
-//   playPause = () => {
-//     // Get state of song
-//     let isPlaying = this.state.isPlaying;
-
-//     if (isPlaying) {
-//       // Pause the song if it is playing
-//       this.state.audio.pause();
-//     } else {
-//       // Play the song if it is paused
-//       this.state.audio.play();
-//     }
-
-//     // Change the state of song
-//     this.setState({ isPlaying: !isPlaying });
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         {/* Show state of song on website */}
-//         <p>{this.state.isPlaying ? "Song is Playing" : "Song is Paused"}</p>
-
-//         {/* Button to call our main function */}
-//         <button onClick={this.playPause}>Play | Pause</button>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;
