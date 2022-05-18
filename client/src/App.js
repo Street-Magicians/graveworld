@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import AccountBox from "./components/AccountBox";
+import AccountProvider from "./components/AccountBox/accountContext";
 
 // pages
 import Login from "./pages/Login";
@@ -51,27 +52,29 @@ function playSong() {
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="columns height-100vh is-flex-direction-column">
-          <Provider store={store}>
-            <Layout className="App">
-              <Header />
-              <audio style={{ visibility: "hidden" }} id="audio" controls autoPlay={true} src={Tiger}></audio>
-              <button onClick={playSong}>Play/Pause</button>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<AccountBox />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/quest" element={<Quest />} />
-                <Route path="/theruin" element={<TheRuin />} />
-                <Route path="/thegraveyard" element={<TheGraveyard />} />
-                <Route path="/theforest" element={<TheForest />} />
-              </Routes>
-              <Footer />
-            </Layout>
-          </Provider>
-        </div>
-      </Router>
+      <AccountProvider>
+        <Router>
+          <div className="columns height-100vh is-flex-direction-column">
+            <Provider store={store}>
+              <Layout className="App">
+                <Header />
+                <audio style={{ visibility: "hidden" }} id="audio" controls autoPlay={true} src={Tiger}></audio>
+                <button onClick={playSong}>Play/Pause</button>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<AccountBox />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/quest" element={<Quest />} />
+                  <Route path="/theruin" element={<TheRuin />} />
+                  <Route path="/thegraveyard" element={<TheGraveyard />} />
+                  <Route path="/theforest" element={<TheForest />} />
+                </Routes>
+                <Footer />
+              </Layout>
+            </Provider>
+          </div>
+        </Router>
+      </AccountProvider>
     </ApolloProvider>
   );
 }

@@ -8,9 +8,6 @@ const spiritTokenSchema = new Schema({
     required: true,
     trim: true,
   },
-  type: {
-    type: String,
-  },
   description: {
     type: String,
   },
