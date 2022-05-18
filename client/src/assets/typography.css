@@ -1,10 +1,4 @@
-.ta-c {
-  text-align: center;
-}
-
-.c-white {
-  color: white;
-}
+/* OO classes  */
 
 .font-reg {
   font-family: "Roboto Condensed", sans-serif;
@@ -22,10 +16,44 @@
   font-weight: 700;
 }
 
-.uppercase {
-  text-transform: uppercase;
+/* Atomic classes in alpha order */
+
+.c-lavender {
+  background-color: var(--lavender);
+}
+
+.c-navy {
+  color: var(--navy);
+}
+
+.c-pink {
+  color: var(--pink);
+}
+
+.c-rose {
+  color: var(--rose);
+}
+
+.c-taupe {
+  color: var(--taupe);
+}
+
+.c-teal {
+  color: var(--teal);
 }
 
 .l-spacing {
   letter-spacing: 3px;
+}
+
+.c-white {
+  color: white;
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

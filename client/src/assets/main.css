@@ -5,3 +5,20 @@
 @import "./typography.css";
 @import "./spacing.css";
 @import "./buttons.css";
+@import "./app.css";
+
+/* media queries */
+
+/* tablet */
+@media (max-width: 992px) {
+}
+
+/* phone */
+@media (max-width: 576px) {
+  .mqPh-w15 {
+    width: 15%;
+  }
+  .mqPh-w10 {
+    width: 50%;
+  }
+}

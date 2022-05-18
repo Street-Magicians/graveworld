@@ -1,8 +1,14 @@
+import PropTypes from "prop-types";
+
 const Footer = () => {
   return (
-    <div className="b-grey p-fixed p-5 w-100">
-      <h3 className="center j-center">Made with ❤️</h3>
-    </div>
+    <footer className="column footer is-narrow is-flex-direction-column b-lavender ">
+      <div className="content has-text-centered">
+        <p className="">
+          <strong>Graveworld</strong> made with ❤️ by Gwen, Jon, Mousa, Sarah, and Stephen
+        </p>
+      </div>
+    </footer>
   );
 };
 
