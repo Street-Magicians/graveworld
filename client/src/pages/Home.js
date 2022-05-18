@@ -4,7 +4,7 @@ import Logo from "../img/graveworld-logo-real.png";
 
 const Home = () => {
   return (
-    <>
+    <main className="column">
       <div className="center m-top m-bottom">
         <img
           className="j-center center miw-100@sml w-med"
@@ -17,7 +17,7 @@ const Home = () => {
           Press Start
         </button>
       </div>
-    </>
+    </main>
   );
 };
 
