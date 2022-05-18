@@ -13,7 +13,7 @@ import AccountBox from "./components/AccountBox";
 import AccountProvider from "./components/AccountBox/accountContext";
 
 // pages
-import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Quest from "./pages/Quest";
 import Home from "./pages/Home";
 import TheRuin from "./pages/TheRuin";
@@ -21,7 +21,6 @@ import TheGraveyard from "./pages/TheGraveyard";
 import TheForest from "./pages/TheForest";
 
 import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
-import AccountProvider from "./components/AccountBox/accountContext";
 
 const httpLink = createHttpLink({
     uri: "/graphql",
@@ -64,7 +63,7 @@ function App() {
                                 <Routes>
                                     <Route path="/" element={<Home />} />
                                     <Route path="/login" element={<AccountBox />} />
-                                    <Route path="/login" element={<Login />} />
+                                    <Route path="/signup" element={<Signup />} />
                                     <Route path="/quest" element={<Quest />} />
                                     <Route path="/theruin" element={<TheRuin />} />
                                     <Route path="/thegraveyard" element={<TheGraveyard />} />
