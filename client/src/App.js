@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import AccountBox from "./components/AccountBox";
+import AccountProvider from "./components/AccountBox/accountContext";
 
 // pages
 import Login from "./pages/Login";
