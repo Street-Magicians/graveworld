@@ -4,7 +4,11 @@ import React, { useState, useContext } from "react";
 export const AccountContext = React.createContext();
 export const useUser = () => useContext(AccountContext);
 export default function AccountProvider({ children }) {
-  const [userInformation, setUserInformation] = useState({ name: "Jon", characterName: "jrock", token: [] });
+  const [userInformation, setUserInformation] = useState({
+    name: "",
+    characterName: "",
+    token: [],
+  });
   const changeName = (userName) => {
     const defaultInformation = userInformation;
     setUserInformation({ ...defaultInformation, name: userName });
@@ -16,5 +20,11 @@ export default function AccountProvider({ children }) {
     setUserInformation({ ...defaultInformation });
   };
 
-  return <AccountContext.Provider value={{ userInformation: userInformation, changeName, addSpiritToken }}>{children}</AccountContext.Provider>;
+  return (
+    <AccountContext.Provider
+      value={{ userInformation: userInformation, changeName, addSpiritToken }}
+    >
+      {children}
+    </AccountContext.Provider>
+  );
 }

@@ -22,29 +22,41 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation Mutation($email: String!, $password: String!, $heroName: String!, $charAvatar: Int!, $stamina: Int) {
-    addUser(email: $email, password: $password, heroName: $heroName, charAvatar: $charAvatar, stamina: $stamina) {
+  mutation Mutation(
+    $email: String!
+    $password: String!
+    $heroName: String! # $charAvatar: Int
+  ) {
+    addUser(
+      email: $email
+      password: $password
+      heroName: $heroName # charAvatar: $charAvatar
+    ) {
       token
       user {
-        email
-        heroName
-        charAvatar
-        stamina
-        spiritTokens {
-          name
-          description
-          image
-          type
-        }
-        wins
+        _id
       }
     }
   }
 `;
 
 export const UPDATE_USER = gql`
-  mutation updateUser($charAvatar: String!, $email: String, $password: String, $heroName: String, $spiritTokens: [ID], $wins: Int) {
-    updateUser(charAvatar: $charAvatar, email: $email, password: $password, heroName: $heroName, spiritTokens: [InputSpiritToken], wins: $wins)
+  mutation updateUser(
+    $charAvatar: String!
+    $email: String
+    $password: String
+    $heroName: String
+    $spiritTokens: [ID]
+    $wins: Int
+  ) {
+    updateUser(
+      charAvatar: $charAvatar
+      email: $email
+      password: $password
+      heroName: $heroName
+      spiritTokens: [InputSpiritToken]
+      wins: $wins
+    )
   }
 `;
 
