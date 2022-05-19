@@ -38,7 +38,12 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addUser(email: String!, password: String!, heroName: String!): Auth
+        addUser(
+            email: String!
+            password: String!
+            heroName: String! # charAvatar: Int!
+        ): # stamina: Int
+        Auth
 
         addSpiritToken(spiritToken: InputSpiritToken): User
 

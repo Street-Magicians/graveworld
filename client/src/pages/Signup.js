@@ -80,23 +80,27 @@ const AccountContainer = styled.div`
 `;
 
 function Signup(props) {
-    const [formState, setFormState] = useState({ email: "", password: "" });
+    const [formState, setFormState] = useState({
+        email: "",
+        password: "",
+        heroName: "",
+    });
     const [addUser] = useMutation(ADD_USER);
 
     const handleFormSubmit = async (event) => {
-        console.log(addUser);
         event.preventDefault();
         const mutationResponse = await addUser({
             variables: {
                 email: formState.email,
                 password: formState.password,
                 heroName: formState.heroName,
-                // charAvatar: 123,
+                // charAvatar: formState.charAvatar,
             },
         });
         const token = mutationResponse.data.addUser.token;
         Auth.login(token);
     };
+    //   console.log("here");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
