@@ -1,19 +1,44 @@
+.align-center {
+  align-items: center;
+}
+
 .center {
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+  gap: 5px;
+}
+
+.img {
+  margin: auto;
   display: block;
+  width: 60%;
 }
 
 .f-1 {
   flex: 1;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .height-100vh {
   height: 100vh;
 }
 
+.height-sm {
+  height: 30px;
+}
+
 .j-center {
   justify-content: center;
+}
+
+.j-left {
+  justify-content: left;
 }
 
 .m-bottom {
@@ -24,6 +49,11 @@
   margin-top: 2rem;
 }
 
+.m-auto {
+  margin: auto;
+  display: block;
+}
+
 .p-3 {
   padding: 3;
 }
@@ -32,9 +62,19 @@
   padding: 5;
 }
 
-.p-fixed {
+.margin-footer-top {
+  margin-top: 40px;
+}
+
+.p-bottom {
+  position: bottom;
+  width: 100%;
+}
+
+.p-absolute {
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .w-5 {
