@@ -1,6 +1,6 @@
 import React from "react";
 //import components
-import Char1 from "../assets/images/sprites/char1.gif";
+import Char1 from "../assets/images/sprites/char1.png";
 import Token from "../assets/images/sprites/placeholder.png";
 
 const Profile = () => {
