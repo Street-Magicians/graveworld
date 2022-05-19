@@ -11,7 +11,8 @@ const DesertQuiz = () => {
   const { addSpiritToken } = useUser();
   const questions = [
     {
-      questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
+      questionText:
+        "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
       answerOptions: [
         { answerText: "River", isCorrect: false },
         { answerText: "Volcano", isCorrect: true },
@@ -20,7 +21,8 @@ const DesertQuiz = () => {
       ],
     },
     {
-      questionText: "You love to watch me rise from sleep, but look my way and you will weep. You need me to have life at all, but as I grow you'll one day fall.",
+      questionText:
+        "You love to watch me rise from sleep, but look my way and you will weep. You need me to have life at all, but as I grow you'll one day fall.",
       answerOptions: [
         { answerText: "A Dog", isCorrect: false },
         { answerText: "A Baby", isCorrect: false },
@@ -76,52 +78,19 @@ const DesertQuiz = () => {
   const handleAddToken = () => {
     // push token to user's spiritToken array in DB
     console.log("receiving token");
-    addSpiritToken({
+    //Check local storage to see if they have token array, IF not create array
+    const tokenArray = [];
+    const flameToken = {
       name: "Flame Token",
-      description: "The firey heart of the Flame ghost",
-      image: "flameToken.png",
-    });
-    updateUser({
-      variables: {
-        charAvatar: "1",
-        spiritTokens: [
-          {
-            name: "Wave Token",
-            description: "It's a little salty keepsake",
-            image: "imanimage",
-            _id: "62845a6a6eec0afe207f212c",
-          },
-        ],
-      },
-    });
-    // // dispatch the Update_STAMINA action to update the global state (user's stamina)
-    // dispatch({
-    //   type: UPDATE_STAMINA,
-    //   stamina: stamina - 5,
-    // });
+      description: "It's a little firey keepsake",
+      image: "imanimage",
+    };
+    tokenArray.push(flameToken);
+    localStorage.setItem("tokens", JSON.stringify(tokenArray));
   };
 
   // function handleUpdateStamina() {
-  //   const [state, dispatch] = useStoreContext();
 
-  //   const { user } = state;
-
-  //   const { data: categoryData } = useQuery(UPDATE_USER);
-
-  //   useEffect(() => {
-  //     if (userData) {
-  //       dispatch({
-  //         type: UPDATE_USER,
-  //         categories: categoryData.categories,
-  //       });
-  //     }
-  //   }, [userData, dispatch]);
-
-  //   const handleClick = (id) => {
-  //     dispatch({
-  //       type: UPDATE_CURRENT_CATEGORY,
-  //       currentCategory: id,
-  //     });
   //   };
 
   // TODO: comment to describe this
@@ -132,17 +101,27 @@ const DesertQuiz = () => {
         <div className="has-text-centered">
           {score === 3 ? (
             <>
-              <img src={require("./../../assets/images/sprites/placeholder.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+              <img
+                src={require("./../../assets/images/sprites/placeholder.png")}
+                alt="an 8-bit rendering of a golden coin"
+                className="m-4 w-10"
+              />
               <p className="c-navy m-2">
-                Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
-                you their boon: The Flame Token. You are one step closer to defeating the Demon Relphax!
+                Success! You piece together {score} out of {questions.length}{" "}
+                clues, and and help the spirit realize their identity:
+                Blazebright, the Spirit of Flames! True to their word, they
+                grant you their boon: The Flame Token. You are one step closer
+                to defeating the Demon Relphax!
               </p>
               <Button text="Return to Quests" link="/quest" />
               <Button text="Return to Profile" link="/profile" />
             </>
           ) : (
             <>
-              <p className="c-navy m-2">"Hmmm, that doesn't seem right," the spirit says, "Let's keep trying, though. We'll figure it out soon, I just know it!"</p>
+              <p className="c-navy m-2">
+                "Hmmm, that doesn't seem right," the spirit says, "Let's keep
+                trying, though. We'll figure it out soon, I just know it!"
+              </p>
               <Button text="Return to Quests" link="/quest" />
               <Button text="Try Again" link="/theruin" />
             </>
@@ -158,12 +137,17 @@ const DesertQuiz = () => {
                 You are solving clue {currentQuestion + 1}/{questions.length}
               </p>
             </div>
-            <div className="py-4">{questions[currentQuestion].questionText}</div>
+            <div className="py-4">
+              {questions[currentQuestion].questionText}
+            </div>
           </div>
           <div className="columns is-centered is-multiline ">
             {/* loops through question's answers array and displays as buttons */}
             {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
+              <p
+                onClick={() => handleAnswerButton(answerOption.isCorrect)}
+                className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold"
+              >
                 {answerOption.answerText}
               </p>
             ))}

@@ -7,11 +7,15 @@ const Profile = () => {
   return (
     <main className="column center">
       <div className="center m-top m-bottom">
-        <img className="j-center center miw-100@sml w-med" src={Char1} alt="Sprite1"></img>
-        <h1 class="c-white font-reg">Hero Name</h1>
+        <img
+          className="j-center center miw-100@sml w-med"
+          src={Char1}
+          alt="Sprite1"
+        ></img>
+        <h1 className="c-white font-reg">Hero Name</h1>
       </div>
-      <h2 class="align-center c-white font-reg m-bottom">Spirit Tokens</h2>
-      <div class="d-flex m-bottom">
+      <h2 className="align-center c-white font-reg m-bottom">Spirit Tokens</h2>
+      <div className="d-flex m-bottom">
         <img className=" img w-10" src={Token} alt="Sprite1"></img>
         <img className=" img w-10" src={Token} alt="Sprite1"></img>
         <img className=" img w-10" src={Token} alt="Sprite1"></img>
