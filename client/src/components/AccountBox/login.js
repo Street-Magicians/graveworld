@@ -6,6 +6,7 @@ import { BoxContainer, BoldLink, FormContainer, Input, MutedLink, SubmitButton }
 import Auth from "../../utils/auth";
 import { Marginer } from "../Marginer";
 import { AccountContext } from "./accountContext";
+import Signup from "../../pages/Signup";
 
 // defines LoginForm tag element
 const LoginForm = () => {
@@ -75,7 +76,7 @@ const LoginForm = () => {
             <MutedLink href="#">
                 {" "}
                 Don't have an accoun?{" "}
-                <BoldLink href="#" onClick={switchToSignin}>
+                <BoldLink href="/signup" onClick={Signup}>
                     Signup
                 </BoldLink>
             </MutedLink>
