@@ -1,9 +1,14 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
 import Button from "../Button/Button";
 import { UPDATE_TOKENS, UPDATE_STAMINA } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { UPDATE_USER } from "../../utils/mutations";
+import { useUser } from "./../AccountBox/accountContext";
 
 const DesertQuiz = () => {
+  const [updateUser, { error }] = useMutation(UPDATE_USER);
+  const { addSpiritToken } = useUser();
   const questions = [
     {
       questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
@@ -57,25 +62,67 @@ const DesertQuiz = () => {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
+      console.log(score);
       setShowQuizEnd(true);
-      // if score === 3
-      // call update user mutation
-      // push token to user's spiritToken array in DB and
-      // else show 'better luck next time!' message and redirect to Quest page
-      let tokens = "Flame Token";
-      let stamina = 30;
-      // dispatch the Update_Tokens action to update the global state (spirit tokens)
-      dispatch({
-        type: UPDATE_TOKENS,
-        spiritTokens: [...tokens],
-      });
-      // dispatch the Update_STAMINA action to update the global state (user's stamina)
-      dispatch({
-        type: UPDATE_STAMINA,
-        stamina: stamina,
-      });
     }
   };
+  useEffect(() => {
+    if (score === 3) {
+      // If score = 3 call update user mutation function
+      handleAddToken();
+    }
+  }, [score]);
+
+  const handleAddToken = () => {
+    // push token to user's spiritToken array in DB
+    console.log("receiving token");
+    addSpiritToken({
+      name: "Flame Token",
+      description: "The firey heart of the Flame ghost",
+      image: "flameToken.png",
+    });
+    updateUser({
+      variables: {
+        charAvatar: "1",
+        spiritTokens: [
+          {
+            name: "Wave Token",
+            description: "It's a little salty keepsake",
+            image: "imanimage",
+            _id: "62845a6a6eec0afe207f212c",
+          },
+        ],
+      },
+    });
+    // // dispatch the Update_STAMINA action to update the global state (user's stamina)
+    // dispatch({
+    //   type: UPDATE_STAMINA,
+    //   stamina: stamina - 5,
+    // });
+  };
+
+  // function handleUpdateStamina() {
+  //   const [state, dispatch] = useStoreContext();
+
+  //   const { user } = state;
+
+  //   const { data: categoryData } = useQuery(UPDATE_USER);
+
+  //   useEffect(() => {
+  //     if (userData) {
+  //       dispatch({
+  //         type: UPDATE_USER,
+  //         categories: categoryData.categories,
+  //       });
+  //     }
+  //   }, [userData, dispatch]);
+
+  //   const handleClick = (id) => {
+  //     dispatch({
+  //       type: UPDATE_CURRENT_CATEGORY,
+  //       currentCategory: id,
+  //     });
+  //   };
 
   // TODO: comment to describe this
   return (
