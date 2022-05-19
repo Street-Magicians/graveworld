@@ -72,7 +72,7 @@ function App() {
                   autoPlay={true}
                   src={Tiger}
                 ></audio>
-                <button class="font-reg j-center" onClick={playSong}>
+                <button className="font-reg j-center" onClick={playSong}>
                   {" "}
                   Mute Music 🔇
                 </button>
