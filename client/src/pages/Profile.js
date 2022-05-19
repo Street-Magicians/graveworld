@@ -1,17 +1,13 @@
 import React from "react";
 //import components
-import Char1 from "../assets/images/sprites/char1.gif";
+import Char1 from "../assets/images/sprites/char1.png";
 import Token from "../assets/images/sprites/placeholder.png";
 
 const Profile = () => {
   return (
     <main className="column center">
       <div className="center m-top m-bottom">
-        <img
-          className="j-center center miw-100@sml w-med"
-          src={Char1}
-          alt="Sprite1"
-        ></img>
+        <img className="j-center center miw-100@sml w-med" src={Char1} alt="Sprite1"></img>
         <h1 class="c-white font-reg">Hero Name</h1>
       </div>
       <h2 class="align-center c-white font-reg m-bottom">Spirit Tokens</h2>
