@@ -25,9 +25,10 @@ import Profile from "./pages/Profile";
 import TheRuin from "./pages/TheRuin";
 import TheGraveyard from "./pages/TheGraveyard";
 import TheForest from "./pages/TheForest";
+import Ending from "./pages/Ending";
 
 // music
-import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+// import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -61,21 +62,25 @@ function App() {
     <ApolloProvider client={client}>
       <AccountProvider>
         <Router>
-          <div className="height-100vh is-flex-direction-column">
+          <div className="center height-100vh is-flex-direction-column">
             <Provider store={store}>
               <Layout className="App">
                 <Header />
-                <audio
+                {/* <audio
                   style={{ visibility: "hidden" }}
                   id="audio"
                   controls
                   autoPlay={true}
                   src={Tiger}
+                  className="center"
                 ></audio>
-                <button className="font-reg j-center" onClick={playSong}>
+                <button
+                  className="b-none center align-center font-reg j-center"
+                  onClick={playSong}
+                >
                   {" "}
-                  Mute Music 🔇
-                </button>
+                  🔇
+                </button> */}
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<AccountBox />} />
@@ -85,6 +90,7 @@ function App() {
                   <Route path="/theruin" element={<TheRuin />} />
                   <Route path="/thegraveyard" element={<TheGraveyard />} />
                   <Route path="/theforest" element={<TheForest />} />
+                  <Route path="/ending" element={<Ending />} />
                 </Routes>
                 <Footer />
               </Layout>

@@ -54,6 +54,10 @@
   display: block;
 }
 
+.m-regular {
+  margin: 1rem;
+}
+
 .p-3 {
   padding: 3;
 }

@@ -4,7 +4,7 @@ import Logo from "../img/graveworld-logo-real.png";
 
 const Home = () => {
   return (
-    <main className="column">
+    <main className="column center">
       <div className="center m-top m-bottom">
         <img
           className="j-center center miw-100@sml w-med"
@@ -12,11 +12,10 @@ const Home = () => {
           alt="Graveworld Logo"
         ></img>
       </div>
-      <div>
-        <button className="bkg-red c-white font-bold n-border j-center center l-spacing p-3 uppercase zoom">
-          Press Start
-        </button>
-      </div>
+      <button className="bkg-red c-white font-bold n-border center l-spacing p-3 uppercase zoom">
+        Press Start
+      </button>
+      <div></div>
     </main>
   );
 };
