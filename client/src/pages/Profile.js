@@ -25,12 +25,13 @@ const Profile = () => {
           alt="Sprite1"
         ></img>
         <h1 className="c-white font-reg">Hero Name</h1>
+        <button className="button">Start Your Quest</button>
       </div>
-      <h2 className="align-center c-white font-reg m-bottom">Spirit Tokens</h2>
+      <h2 className="c-white font-reg m-bottom">Spirit Tokens</h2>
       <div className="d-flex m-bottom">
-        <img className=" img w-10" src={Token} alt="Sprite1"></img>
-        <img className=" img w-10" src={Token} alt="Sprite1"></img>
-        <img className=" img w-10" src={Token} alt="Sprite1"></img>
+        <img className="img w-10" src={Token} alt="Sprite1"></img>
+        <img className="img w-10" src={Token} alt="Sprite1"></img>
+        <img className="img w-10" src={Token} alt="Sprite1"></img>
       </div>
     </main>
   );
