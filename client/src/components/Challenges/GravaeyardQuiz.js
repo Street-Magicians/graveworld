@@ -1,34 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 
-const DesertQuiz = () => {
+const GraveyardQuiz = () => {
   const questions = [
     {
-      questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
+      questionText: "My dance has lasted since my birth, I’m friend to all who live on earth. I push and pull and fall and climb, you even use me to tell the time",
       answerOptions: [
-        { answerText: "River", isCorrect: false },
-        { answerText: "Volcano", isCorrect: true },
-        { answerText: "Hurricane", isCorrect: false },
-        { answerText: "Earthquake", isCorrect: false },
+        { answerText: "The Stars", isCorrect: false },
+        { answerText: "Godzilla", isCorrect: false },
+        { answerText: "A Compass", isCorrect: false },
+        { answerText: "The Moon", isCorrect: true },
       ],
     },
     {
-      questionText: "You love to watch me rise from sleep, but look my way and you will weep. You need me to have life at all, but as I grow you'll one day fall.",
+      questionText: "I can help you clean your shirt, when I fall I’m never hurt. I can run without any feet, and am your dearest friend amid the heat",
       answerOptions: [
-        { answerText: "A Dog", isCorrect: false },
-        { answerText: "A Baby", isCorrect: false },
-        { answerText: "Dreams", isCorrect: false },
-        { answerText: "The Sun", isCorrect: true },
+        { answerText: "Gatorade", isCorrect: false },
+        { answerText: "Water", isCorrect: true },
+        { answerText: "Time", isCorrect: false },
+        { answerText: "A Fan", isCorrect: false },
       ],
     },
     {
-      questionText:
-        "I'm looking for my heart, it's red through and through. It has no mouth, but would swiftly consume you. It fears water but befriends the breeze. If you find it, I will be at ease",
+      questionText: "I have an eye but cannot see, at my worst I can cause  misery. I run with water through the sky, When I’m bad we both may cry",
       answerOptions: [
-        { answerText: "Rubies", isCorrect: false },
-        { answerText: "Flamin' Hot Cheetos", isCorrect: false },
-        { answerText: "Fire", isCorrect: true },
-        { answerText: "Light", isCorrect: false },
+        { answerText: "A Storm", isCorrect: true },
+        { answerText: "Lightening", isCorrect: false },
+        { answerText: "A Cyclops", isCorrect: false },
+        { answerText: "A Tsunami", isCorrect: false },
       ],
     },
   ];
@@ -65,14 +64,15 @@ const DesertQuiz = () => {
 
   const handleAddToken = () => {
     //Check local storage to see if they have token array, if not create array
+    // TODO: Figure out how to push token to array without overwriting previous tokens
     const tokenArray = [];
-    const flameToken = {
-      name: "Flame Token",
-      description: "A ruby-like gem that swirls like magma inside yet is cool to the touch",
-      image: "./../../assets/images/sprites/flameToken.png",
+    const waveToken = {
+      name: "Wave Token",
+      description: "A small silver seashell. When you hold it up to your ear you can hear the sound of running water! ",
+      image: "./../../assets/images/sprites/waveToken.png",
     };
     // push token to user's spiritToken array in local storage
-    tokenArray.push(flameToken);
+    tokenArray.push(waveToken);
     localStorage.setItem("tokens", JSON.stringify(tokenArray));
     // }
   };
@@ -89,17 +89,18 @@ const DesertQuiz = () => {
           {/* if user answers all questions correctly, display 'success' message, otherwise 'failure' message */}
           {score === 3 ? (
             <>
-              <img src={require("./../../assets/images/sprites/flameToken.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+              <img src={require("./../../assets/images/sprites/waveToken.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
               <p className="c-navy m-2">
-                Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
-                you their boon: The Flame Token. It looks like some kind of gem that swirls like magma inside yet is cool to the touch. You are one step closer to defeating the Demon Relphax!
+                Success! You play the ghost pirtate’s games, and blow all {score} out of the water! At last they lean back and have a laugh, “that’s the most fun we’ve ‘ad in years! Ye’ve surely won
+                the favor o’ Stormsail, Spirit o’ the Waves!” True to their word, they grant you their boon: The Wave Token! It looks like a small silver seashell, and when you hold it up to your ear
+                you can hear the sound of running water. You are one step closer to defeating the Demon Relphax!
               </p>
               <Button link="/quest">Return to Quests</Button>
               <Button link="/profile">Return to Profile</Button>
             </>
           ) : (
             <>
-              <p className="c-navy m-2">"Hmmm, that doesn't seem right," the spirit says, "Let's keep trying, though. We'll figure it out soon, I just know it!"</p>
+              <p className="c-navy m-2">"'Yer no fun at all," the ghostly pirate says, "I'm not lettin' ye outta this 'ol brig until ye play with some heart!"</p>
               <Button link="/quest">Return to Quests</Button>
               <Button link="/theruin">Try Again</Button>
             </>
@@ -130,5 +131,5 @@ const DesertQuiz = () => {
     </section>
   );
 };
-// export DesertQuiz function
-export default DesertQuiz;
+// export GraveyardQuiz function
+export default GraveyardQuiz;

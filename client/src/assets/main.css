@@ -6,10 +6,9 @@
 @import "./spacing.css";
 @import "./buttons.css";
 @import "./app.css";
+@import "./snackbar.css";
 
-/* media queries */
-
-/* tablet */
+/* media queries */ /* tablet */
 @media (max-width: 992px) {
 }
 

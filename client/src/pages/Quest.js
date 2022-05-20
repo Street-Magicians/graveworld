@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
@@ -7,18 +7,18 @@ import HeroBtn from "../components/HeroBtn/HeroBtn";
 
 // Quest page is hub for how User navigates to 'Spirit Challenges'
 const Quest = () => {
-  // page loads  only if user is logged in, otherwise redirect to login/signup
-  // handleDisplayAvatar (to retrieve and display player avatar as 'return to profile' icon)
-  // handleDisplayTokens (to retrieve and display user's current spirit token images)
   // handleDemonChallenge (if user has 3 SpiritTokens OR 0 stamina display 'demon challenge component)
+
+  // sets tokenArray to state
+  const [tokens, setTokens] = useState([]);
+  useEffect(() => {
+    // reads/sets token array from local storage
+    const tokenArray = JSON.parse(localStorage.getItem("tokens"));
+    setTokens(tokenArray);
+  }, []);
 
   return (
     <main>
-      {/* TODO: MAKE THIS COMPONENT DYNAMIC BASED ON USER AVATAR AND STAMINA!! */}
-      <section className="m-4">
-        <HeroBtn link="/profile" />
-      </section>
-
       {/* Challenge 1: Desert Ruin */}
       <section>
         <Title
@@ -31,7 +31,10 @@ const Quest = () => {
             text="A once-proud castle torn asunder by time offers protection from an approaching storm. Perhaps you’ll find something inside to help you on your journey"
             className="b-taupe c-navy"
           />
-          <Button text="Explore the ruin" link="/theruin" />
+          {/* loopss through token array. If flame token is present, marks challenge as complete */}
+          {tokens.map((token) => (
+            <div>{token.name === "Flame Token" ? <Button>Quest Complete!</Button> : <Button link="/theruin">Explore the ruin</Button>}</div>
+          ))}
         </div>
       </section>
 
@@ -39,7 +42,10 @@ const Quest = () => {
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Ship Graveyard" text="Decaying ships create a land mass that may be worth checking out; perhaps there will be treasure!" className="b-taupe c-navy" />
-          <Button text="Explore the graveyard" link="/thegraveyard" />
+          {/* loopss through token array. If wave token is present, marks challenge as complete */}
+          {tokens.map((token) => (
+            <div>{token.name === "Wave Token" ? <Button>Quest Complete!</Button> : <Button link="/thegraveyard">Explore the graveyard</Button>}</div>
+          ))}
         </div>
       </section>
 
@@ -47,26 +53,16 @@ const Quest = () => {
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Evernight Forest" text="This forest is rumored to be haunted...ghosts are just friends without bodies, right?" className="b-taupe c-navy" />
-          <Button text="Explore the forest" link="/theforest" />
+          {/* loopss through token array. If root token is present, marks challenge as complete */}
+          {tokens.map((token) => (
+            <div>{token.name === "Root Token" ? <Button>Quest Complete!</Button> : <Button link="/theforest">Explore the forest</Button>}</div>
+          ))}
         </div>
       </section>
 
-      {/* comonent for SpiritChallenge 1  */}
-      {/* component for SpiritChallenge 2  */}
-      {/* component for SpiritChallenge 3  */}
       {/* when 3 tokens are earned, display DemonChallenge component */}
-      {/* footer component */}
     </main>
   );
 };
-
-// const styles {
-
-// }
-// style other page elements
-
-// create 'spirit challenge' component
-// create 'demon challenge' component
-// create button component
 
 export default Quest;
