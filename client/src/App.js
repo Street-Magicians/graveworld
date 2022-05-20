@@ -28,7 +28,7 @@ import TheForest from "./pages/TheForest";
 import Ending from "./pages/Ending";
 
 // music
-import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+// import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
@@ -66,7 +66,7 @@ function App() {
           <div className="center height-100vh is-flex-direction-column">
             <Provider store={store}>
               <Layout className="App">
-                <Header />
+                {/* <Header /> */}
                 {/* <audio
                   style={{ visibility: "hidden" }}
                   id="audio"

@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
@@ -14,6 +15,7 @@ const Quest = () => {
 
   return (
     <main>
+      <Header></Header>
       {/* TODO: MAKE THIS COMPONENT DYNAMIC BASED ON USER AVATAR AND STAMINA!! */}
       <section className="m-4">
         <HeroBtn link="/profile" />
@@ -38,7 +40,11 @@ const Quest = () => {
       {/* Challenge 2: Ship Graveyard */}
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
-          <Card title="The Ship Graveyard" text="Decaying ships create a land mass that may be worth checking out; perhaps there will be treasure!" className="b-taupe c-navy" />
+          <Card
+            title="The Ship Graveyard"
+            text="Decaying ships create a land mass that may be worth checking out; perhaps there will be treasure!"
+            className="b-taupe c-navy"
+          />
           <Button text="Explore the graveyard" link="/thegraveyard" />
         </div>
       </section>
@@ -46,7 +52,11 @@ const Quest = () => {
       {/* Challenge 3: Evernight Forest */}
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
-          <Card title="The Evernight Forest" text="This forest is rumored to be haunted...ghosts are just friends without bodies, right?" className="b-taupe c-navy" />
+          <Card
+            title="The Evernight Forest"
+            text="This forest is rumored to be haunted...ghosts are just friends without bodies, right?"
+            className="b-taupe c-navy"
+          />
           <Button text="Explore the forest" link="/theforest" />
         </div>
       </section>

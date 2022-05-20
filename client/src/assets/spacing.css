@@ -81,6 +81,10 @@
   width: 100%;
 }
 
+.s-between {
+  justify-content: space-between;
+}
+
 .w-5 {
   width: 5%;
 }
@@ -116,5 +120,8 @@
 @media screen and (max-width: 767px) {
   .miw-100\@sml {
     min-width: 50%;
+  }
+  .stack {
+    display: block;
   }
 }
