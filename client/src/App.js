@@ -28,7 +28,8 @@ import TheForest from "./pages/TheForest";
 import Ending from "./pages/Ending";
 
 // music
-// import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -83,7 +84,7 @@ function App() {
                 </button> */}
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<AccountBox />} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/quest" element={<Quest />} />

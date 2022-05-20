@@ -6,6 +6,11 @@ import { ADD_USER } from "../utils/mutations";
 import styled from "styled-components";
 import AccountBox from "../components/AccountBox";
 import AccountProvider from "../components/AccountBox/accountContext";
+import Button from "../components/Button/Button";
+import char1 from "../assets/images/sprites/char1.png";
+import char2 from "../assets/images/sprites/char2.png";
+import char3 from "../assets/images/sprites/char3.png";
+import char4 from "../assets/images/sprites/char4.png";
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -22,7 +27,6 @@ const BoxContainer = styled.div`
 `;
 const TopContainer = styled.div`
   width: 100%;
-  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -58,7 +62,6 @@ const HeaderContainer = styled.div`
 const HeaderText = styled.h2`
   font-size: 35px;
   font-weight: 650;
-  line-height: 4;
   color: #fff;
   z-index: 10;
   margin: 0;
@@ -116,6 +119,10 @@ function Signup(props) {
     });
   };
 
+  const saveAvatar = (id) => {
+    localStorage.setItem("charAv", id);
+  };
+
   return (
     <AccountContainer>
       <BoxContainer>
@@ -161,8 +168,42 @@ function Signup(props) {
                     onChange={handleChange}
                   />
                 </div>
+                <div>
+                  Choose an Avatar
+                  <div className="columns is-mobile">
+                    <img
+                      onClick={() => saveAvatar(1)}
+                      className="column is-6"
+                      src={char1}
+                      alt=""
+                    ></img>
+                    <img
+                      onClick={() => saveAvatar(2)}
+                      className="column is-6"
+                      src={char2}
+                      alt=""
+                    ></img>
+                  </div>
+                  <div className="columns is-mobile">
+                    <img
+                      onClick={() => saveAvatar(3)}
+                      className="column is-6"
+                      src={char3}
+                      alt=""
+                    ></img>
+                    <img
+                      onClick={() => saveAvatar(4)}
+                      className="column is-6"
+                      src={char4}
+                      alt=""
+                    ></img>
+                  </div>
+                </div>
+
                 <div className="flex-row flex-end">
-                  <button type="submit">Submit</button>
+                  <Button link="/profile" type="submit">
+                    Submit
+                  </Button>
                 </div>
               </form>
             </div>
