@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../components/Button/Button";
 //import components
 import Demon from "../assets/images/sprites/Demonlord.png";
 
@@ -18,8 +19,8 @@ const Ending = () => {
         </h2>
       </div>
       <div className="">
-        <button className="button m-regular">Play Again?</button>
-        <button className="button m-regular">Profile</button>
+        <Button children="Profile" link="/profile" />
+        <Button children="Play Again?" link="/quest" />
       </div>
     </main>
   );

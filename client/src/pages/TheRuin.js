@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import DesertQuiz from "../components/Challenges/DesertQuiz";
@@ -10,6 +11,7 @@ const TheRuin = () => {
 
   return (
     <main className="column">
+      <Header></Header>
       {/* This section sets the scene for the story */}
       <Title
         title="The Desert Ruin"
@@ -17,7 +19,11 @@ const TheRuin = () => {
         text2="You need all the support you can get to banish the demon, and if this ally is as powerful as they say it would be worth helping out."
       />
       <figure className="columns is-centered is-mobile  ">
-        <img src={require("../assets/images/sprites/ghost1.png")} alt="an 8-bit rendering of a brown ghost" className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop" />
+        <img
+          src={require("../assets/images/sprites/ghost1.png")}
+          alt="an 8-bit rendering of a brown ghost"
+          className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop"
+        />
       </figure>
 
       <DesertQuiz />
