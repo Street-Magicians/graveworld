@@ -6,6 +6,7 @@ import { ADD_USER } from "../utils/mutations";
 import styled from "styled-components";
 import AccountBox from "../components/AccountBox";
 import AccountProvider from "../components/AccountBox/accountContext";
+import Button from "../components/Button/Button";
 
 const BoxContainer = styled.div`
   width: 280px;
@@ -162,7 +163,9 @@ function Signup(props) {
                   />
                 </div>
                 <div className="flex-row flex-end">
-                  <button type="submit">Submit</button>
+                  <Button link="/profile" type="submit">
+                    Submit
+                  </Button>
                 </div>
               </form>
             </div>
