@@ -117,53 +117,57 @@ function Signup(props) {
   };
 
   return (
-    <AccountContainer>
-      <BoxContainer>
-        <TopContainer>
-          <BackDrop />{" "}
-          <HeaderContainer>
-            <HeaderText>Welcome</HeaderText>
-            <HeaderText>Back</HeaderText>
-            <SmallText>Please Sign Up</SmallText>
+    <>
+      <div className="mt-6"></div>
+      <AccountContainer>
+        <BoxContainer>
+          <TopContainer>
+            <BackDrop />{" "}
+            <HeaderContainer>
+              <HeaderText>Welcome</HeaderText>
+              <HeaderText>Back</HeaderText>
+              <SmallText>Please Sign Up</SmallText>
 
-            <div className=" container my-1">
-              <Link to="/login">← Go to Login</Link>
+              <div className=" container my-1">
+                <Link to="/login">← Go to Login</Link>
 
-              <h2>Signup</h2>
-              <form onSubmit={handleFormSubmit}>
-                <div className="flex-row space-between my-2">
-                  <label htmlFor="email">Email:</label>
-                  <input placeholder="youremail@test.com" name="email" type="email" id="email" onChange={handleChange} />
-                </div>
-                <div className="flex-row space-between my-2">
-                  <label htmlFor="pwd">Password:</label>
-                  <input placeholder="******" name="password" type="password" id="pwd" onChange={handleChange} />
-                </div>
-                <div className="flex-row space-between my-2">
-                  <label htmlFor="pwd">heroName:</label>
-                  <input placeholder="******" name="heroName" type="text" id="heroName" onChange={handleChange} />
-                </div>
-                <div>
-                  Choose an Avatar
-                  <div className="columns is-mobile">
-                    <img onClick={() => saveAvatar(1)} className="column is-6" src={char1} alt=""></img>
-                    <img onClick={() => saveAvatar(2)} className="column is-6" src={char2} alt=""></img>
+                <h2>Signup</h2>
+                <form onSubmit={handleFormSubmit}>
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="email">Email:</label>
+                    <input placeholder="youremail@test.com" name="email" type="email" id="email" onChange={handleChange} />
                   </div>
-                  <div className="columns is-mobile">
-                    <img onClick={() => saveAvatar(3)} className="column is-6" src={char3} alt=""></img>
-                    <img onClick={() => saveAvatar(4)} className="column is-6" src={char4} alt=""></img>
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="pwd">Password:</label>
+                    <input placeholder="******" name="password" type="password" id="pwd" onChange={handleChange} />
                   </div>
-                </div>
+                  <div className="flex-row space-between my-2">
+                    <label htmlFor="pwd">heroName:</label>
+                    <input placeholder="******" name="heroName" type="text" id="heroName" onChange={handleChange} />
+                  </div>
+                  <div>
+                    Choose an Avatar
+                    <div className="columns is-mobile">
+                      <img onClick={() => saveAvatar(1)} className="column is-6 chooseMe" src={char1} alt="" tabindex="0" />
+                      <img onClick={() => saveAvatar(2)} className="column is-6 chooseMe" src={char2} alt="" tabindex="0" />
+                    </div>
+                    <div className="columns is-mobile">
+                      <img onClick={() => saveAvatar(3)} className="column is-6 chooseMe" src={char3} alt="" tabindex="0" />
+                      <img onClick={() => saveAvatar(4)} className="column is-6 chooseMe" src={char4} alt="" tabindex="0" />
+                    </div>
+                  </div>
 
-                <div className="flex-row flex-end">
-                  <Button>Submit</Button>
-                </div>
-              </form>
-            </div>
-          </HeaderContainer>
-        </TopContainer>
-      </BoxContainer>
-    </AccountContainer>
+                  <div className="flex-row flex-end">
+                    <Button>Submit</Button>
+                  </div>
+                </form>
+              </div>
+            </HeaderContainer>
+          </TopContainer>
+        </BoxContainer>
+      </AccountContainer>
+      <div className="min-height-75vh"></div>
+    </>
   );
 }
 

@@ -50,3 +50,15 @@ img:hover {
 .b-red {
   background-color: rgb(153, 37, 37);
 }
+
+.chooseMe:hover {
+  cursor: pointer;
+}
+
+.chooseMe:active {
+  transform: translateY(4px);
+}
+
+.chooseMe:focus {
+  filter: drop-shadow(0 0 0.75rem var(--rose));
+}
