@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
@@ -103,7 +103,6 @@ function Signup(props) {
         email: formState.email,
         password: formState.password,
         heroName: formState.heroName,
-        // charAvatar: formState.charAvatar,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -201,9 +200,7 @@ function Signup(props) {
                 </div>
 
                 <div className="flex-row flex-end">
-                  <Button link="/profile" type="submit">
-                    Submit
-                  </Button>
+                  <Button>Submit</Button>
                 </div>
               </form>
             </div>
