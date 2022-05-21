@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
 import Button from "../components/Button/Button";
 import HeroBtn from "../components/HeroBtn/HeroBtn";
+import Overcast from "../img/OVERCAST_AdobeStock_452594013_preview.m4a";
+import Tiger from "../img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
 // Quest page is hub for how User navigates to 'Spirit Challenges'
-const Quest = () => {
+const Quest = ({ handleMusicChange }) => {
+  useEffect(() => {
+    handleMusicChange(Overcast);
+    return () => {
+      handleMusicChange(Tiger);
+    };
+  }, []);
+
   // page loads  only if user is logged in, otherwise redirect to login/signup
   // handleDisplayAvatar (to retrieve and display player avatar as 'return to profile' icon)
   // handleDisplayTokens (to retrieve and display user's current spirit token images)
