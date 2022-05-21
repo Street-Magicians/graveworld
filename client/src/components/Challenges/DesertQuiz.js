@@ -64,22 +64,21 @@ const DesertQuiz = () => {
   }, [score]);
 
   const handleAddToken = () => {
-    //Check local storage to see if they have token array, if not create array
-    const tokenArray = [];
+    // Flame Token object
     const flameToken = {
       name: "Flame Token",
       description: "A ruby-like gem that swirls like magma inside yet is cool to the touch",
       image: "./../../assets/images/sprites/flameToken.png",
     };
-    // push token to user's spiritToken array in local storage
+    // if no existing data, create an array, otherwise convert string to object
+    let tokenArray = JSON.parse(localStorage.getItem("tokens")) || [];
+    // add flame token to localStorage tokens array
     tokenArray.push(flameToken);
+    // save to localStorage
     localStorage.setItem("tokens", JSON.stringify(tokenArray));
-    // }
+
+    // function handleUpdateStamina() {
   };
-
-  // function handleUpdateStamina() {
-
-  //   };
 
   return (
     <section className="box mx-4 my-2">
@@ -89,7 +88,7 @@ const DesertQuiz = () => {
           {/* if user answers all questions correctly, display 'success' message, otherwise 'failure' message */}
           {score === 3 ? (
             <>
-              <img src={require("./../../assets/images/sprites/flameToken.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+              <img src={require("./../../assets/images/sprites/flameToken.png")} alt="an 8-bit rendering of a red swirly gem" className="m-4 w-10 mqPh-w25" />
               <p className="c-navy m-2">
                 Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
                 you their boon: The Flame Token. It looks like some kind of gem that swirls like magma inside yet is cool to the touch. You are one step closer to defeating the Demon Relphax!

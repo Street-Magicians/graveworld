@@ -63,23 +63,21 @@ const GraveyardQuiz = () => {
   }, [score]);
 
   const handleAddToken = () => {
-    //Check local storage to see if they have token array, if not create array
-    // TODO: Figure out how to push token to array without overwriting previous tokens
-    const tokenArray = [];
     const waveToken = {
       name: "Wave Token",
       description: "A small silver seashell. When you hold it up to your ear you can hear the sound of running water! ",
       image: "./../../assets/images/sprites/waveToken.png",
     };
-    // push token to user's spiritToken array in local storage
+
+    // if no existing data, create an array, otherwise convert string to object
+    let tokenArray = JSON.parse(localStorage.getItem("tokens")) || [];
+    // add wave token to localStorage tokens array
     tokenArray.push(waveToken);
+    // save to localStorage
     localStorage.setItem("tokens", JSON.stringify(tokenArray));
-    // }
   };
 
-  // function handleUpdateStamina() {
-
-  //   };
+  // function handleUpdateStamina() {}
 
   return (
     <section className="box mx-4 my-2">
@@ -89,7 +87,7 @@ const GraveyardQuiz = () => {
           {/* if user answers all questions correctly, display 'success' message, otherwise 'failure' message */}
           {score === 3 ? (
             <>
-              <img src={require("./../../assets/images/sprites/waveToken.png")} alt="an 8-bit rendering of a golden coin" className="m-4 w-10" />
+              <img src={require("./../../assets/images/sprites/waveToken.png")} alt="an 8-bit rendering of a seashell" className="m-4 w-10 mqPh-w25" />
               <p className="c-navy m-2">
                 Success! You play the ghost pirtate’s games, and blow all {score} out of the water! At last they lean back and have a laugh, “that’s the most fun we’ve ‘ad in years! Ye’ve surely won
                 the favor o’ Stormsail, Spirit o’ the Waves!” True to their word, they grant you their boon: The Wave Token! It looks like a small silver seashell, and when you hold it up to your ear

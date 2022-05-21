@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
 import Button from "../components/Button/Button";
-import HeroBtn from "../components/HeroBtn/HeroBtn";
 
 // Quest page is hub for how User navigates to 'Spirit Challenges'
 const Quest = () => {
@@ -31,10 +30,20 @@ const Quest = () => {
             text="A once-proud castle torn asunder by time offers protection from an approaching storm. Perhaps you’ll find something inside to help you on your journey"
             className="b-taupe c-navy"
           />
-          {/* loopss through token array. If flame token is present, marks challenge as complete */}
-          {tokens.map((token) => (
-            <div>{token.name === "Flame Token" ? <Button>Quest Complete!</Button> : <Button link="/theruin">Explore the ruin</Button>}</div>
-          ))}
+          {/* checks to see if array exists, then loops through token array. If flame token is present, marks challenge as complete */}
+          {/* {tokens ? (
+            tokens.map((token) => <div>{token.name === "Flame Token" ? <Button>Quest Complete!</Button> : <Button link="/theruin">Explore the ruin</Button>}</div>)
+          ) : (
+            <div>
+              <Button link="/theruin">Explore the ruin</Button>
+            </div>
+          )} */}
+
+          {/* {tokens.map((token) => (
+            <div>{token.name === "Flame Token" ? <Button>Quest Complete!</Button> : <Button link="/thegraveyard">Explore the ruin</Button>}</div>
+          ))} */}
+
+          {tokens.includes("Flame Token") ? <Button>Quest Complete!</Button> : <Button link="/theruin">Explore the ruin</Button>}
         </div>
       </section>
 
@@ -42,10 +51,9 @@ const Quest = () => {
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Ship Graveyard" text="Decaying ships create a land mass that may be worth checking out; perhaps there will be treasure!" className="b-taupe c-navy" />
-          {/* loopss through token array. If wave token is present, marks challenge as complete */}
-          {tokens.map((token) => (
-            <div>{token.name === "Wave Token" ? <Button>Quest Complete!</Button> : <Button link="/thegraveyard">Explore the graveyard</Button>}</div>
-          ))}
+          {/* checks to see if array exists, then loops through token array. If wave token is present, marks challenge as complete */}
+
+          {tokens.includes("Flame Token") ? <Button>Quest Complete!</Button> : <Button link="/theruin">Explore the ruin</Button>}
         </div>
       </section>
 
@@ -53,10 +61,8 @@ const Quest = () => {
       <section>
         <div className="box b-white c-navy has-text-centered m-4 p-2">
           <Card title="The Evernight Forest" text="This forest is rumored to be haunted...ghosts are just friends without bodies, right?" className="b-taupe c-navy" />
-          {/* loopss through token array. If root token is present, marks challenge as complete */}
-          {tokens.map((token) => (
-            <div>{token.name === "Root Token" ? <Button>Quest Complete!</Button> : <Button link="/theforest">Explore the forest</Button>}</div>
-          ))}
+          {/* checks to see if array exists, then loops through token array. If root token is present, marks challenge as complete */}
+          {tokens.includes("Flame Token") ? <Button>Quest Complete!</Button> : <Button link="/theruin">Explore the ruin</Button>}
         </div>
       </section>
 
