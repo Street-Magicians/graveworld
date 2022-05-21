@@ -67,6 +67,10 @@
   margin-top: 2rem;
 }
 
+.m-regular {
+  margin: 1rem;
+}
+
 .p-3 {
   padding: 3;
 }
@@ -97,6 +101,10 @@
 .p-sticky {
   position: sticky;
   bottom: 0;
+}
+
+.s-between {
+  justify-content: space-between;
 }
 
 .w-5 {
@@ -134,5 +142,8 @@
 @media screen and (max-width: 767px) {
   .miw-100\@sml {
     min-width: 50%;
+  }
+  .stack {
+    display: block;
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import GraveyardQuiz from "../components/Challenges/GravaeyardQuiz";
@@ -9,7 +10,8 @@ const TheGraveyard = () => {
   //
 
   return (
-    <main className="">
+    <main>
+      <Header></Header>
       {/* This section sets the scene for the story */}
       <Title
         title="The Ship Graveyard"

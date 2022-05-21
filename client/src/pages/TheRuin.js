@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import DesertQuiz from "../components/Challenges/DesertQuiz";
@@ -9,7 +10,8 @@ const TheRuin = () => {
   //
 
   return (
-    <main className="">
+    <main className="column">
+      <Header></Header>
       {/* This section sets the scene for the story */}
       <Title
         title="The Desert Ruin"

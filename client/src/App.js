@@ -20,9 +20,11 @@ import Profile from "./pages/Profile";
 import TheRuin from "./pages/TheRuin";
 import TheGraveyard from "./pages/TheGraveyard";
 import TheForest from "./pages/TheForest";
+import Ending from "./pages/Ending";
 
 // music
-import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+// import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -56,24 +58,35 @@ function App() {
     <ApolloProvider client={client}>
       <AccountProvider>
         <Router>
-          <div className="min-height-100vh p-relative">
+          <div className="center height-100vh is-flex-direction-column">
             <Provider store={store}>
               <Layout className="App">
-                <Header />
-                <audio style={{ visibility: "hidden" }} id="audio" controls autoPlay={true} src={Tiger}></audio>
-                <button className="font-reg j-center" onClick={playSong}>
+                {/* <Header /> */}
+                {/* <audio
+                  style={{ visibility: "hidden" }}
+                  id="audio"
+                  controls
+                  autoPlay={true}
+                  src={Tiger}
+                  className="center"
+                ></audio>
+                <button
+                  className="b-none center align-center font-reg j-center"
+                  onClick={playSong}
+                >
                   {" "}
-                  Mute Music 🔇
-                </button>
+                  🔇
+                </button> */}
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<AccountBox />} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/quest" element={<Quest />} />
                   <Route path="/theruin" element={<TheRuin />} />
                   <Route path="/thegraveyard" element={<TheGraveyard />} />
                   <Route path="/theforest" element={<TheForest />} />
+                  <Route path="/ending" element={<Ending />} />
                 </Routes>
                 <Footer />
               </Layout>
