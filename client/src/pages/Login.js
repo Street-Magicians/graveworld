@@ -159,9 +159,7 @@ function Login(props) {
                   </div>
                 ) : null}
                 <div className="flex-row flex-end">
-                  <Button link="/profile" type="submit">
-                    Submit
-                  </Button>
+                  <Button type="submit">Submit</Button>
                 </div>
               </form>
               <MutedLink href="#">

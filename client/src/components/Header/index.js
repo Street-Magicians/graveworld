@@ -1,5 +1,6 @@
 import Button from "../Button/Button";
 import Logo from "../../img/graveworld-logo-real.png";
+import Auth from "../../utils/auth";
 
 const Header = () => {
   return (
@@ -12,7 +13,11 @@ const Header = () => {
         ></img>
         <div className="align-center">
           <Button children="Profile" link="/profile" />
-          <Button children="Logout" link="/profile" />
+          <button
+            className="button b-teal c-pink f-1 has-text-weight-semibold m-2"
+            children="Logout"
+            onClick={() => Auth.logout()}
+          />
         </div>
         {/* <audio
           style={{ visibility: "hidden" }}

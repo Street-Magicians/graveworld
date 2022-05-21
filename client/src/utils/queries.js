@@ -8,10 +8,6 @@ export const QUERY_USER = gql`
       charAvatar
       stamina
       wins
-      spiritToken {
-        _id
-        name
-      }
     }
   }
 `;
