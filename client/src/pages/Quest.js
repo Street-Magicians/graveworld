@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
-=======
-import React from "react";
 import Header from "../components/Header";
->>>>>>> main
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
@@ -13,7 +9,6 @@ import Button from "../components/Button/Button";
 const Quest = () => {
   // handleDemonChallenge (if user has 3 SpiritTokens OR 0 stamina display 'demon challenge component)
 
-<<<<<<< HEAD
   // sets tokenArray to state
   const [tokens, setTokens] = useState([]);
   useEffect(() => {
@@ -21,18 +16,9 @@ const Quest = () => {
     const tokenArray = JSON.parse(localStorage.getItem("tokens"));
     setTokens(tokenArray);
   }, []);
-=======
-  return (
-    <main>
-      <Header></Header>
-      {/* TODO: MAKE THIS COMPONENT DYNAMIC BASED ON USER AVATAR AND STAMINA!! */}
-      <section className="m-4">
-        <HeroBtn link="/profile" />
-      </section>
->>>>>>> main
-
   return (
     <main className="pb-6">
+      <Header></Header>
       {/* Challenge 1: Desert Ruin */}
       <section>
         <Title
@@ -75,7 +61,7 @@ const Quest = () => {
             title="Time to Face the Demon"
             text="You have journeyed across Graveworld in search of the Demon Relphax’s lair. With the spirit tokens you have collected, you just may stand a chance at banishing him once and for all. You confront Relphax at last...but will you win?"
           />
-          <Button className="button b-white c-rose mt-2 has-text-weight-semibold" link="/thedemon">
+          <Button className="button b-white c-rose mt-2 has-text-weight-semibold" link="/ending">
             Face Relphax
           </Button>
         </div>

@@ -41,7 +41,7 @@ const Profile = () => {
         <img className="j-center center miw-100@sml w-med" src={avatarImg} alt="Sprite1"></img>
         {loading ? <div>loading</div> : <h1 className="c-white font-reg">{userHero}</h1>}
 
-        <Button className="button" link="/quest" type="submit">
+        <Button className="" link="/quest" type="submit">
           Start Your Quest
         </Button>
       </div>
