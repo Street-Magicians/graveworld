@@ -80,6 +80,12 @@ const DesertQuiz = () => {
     // function handleUpdateStamina() {
   };
 
+  const handleSelection = () => {
+    setCurrentQuestion(0);
+    setShowQuizEnd(false);
+    setScore(0);
+  };
+
   return (
     <section className="box mx-4 my-2">
       {/* if ShowQuizEnd is true (once all questions have been answered), display message */}
@@ -100,7 +106,7 @@ const DesertQuiz = () => {
             <>
               <p className="c-navy m-2">"Hmmm, that doesn't seem right," the spirit says, "Let's keep trying, though. We'll figure it out soon, I just know it!"</p>
               <Button link="/quest">Return to Quests</Button>
-              <Button link="/theruin">Try Again</Button>
+              <Button handleSelection={handleSelection}>Try Again</Button>
             </>
           )}
         </div>
