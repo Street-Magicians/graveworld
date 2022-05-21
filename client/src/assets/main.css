@@ -7,9 +7,7 @@
 @import "./buttons.css";
 @import "./app.css";
 
-/* media queries */
-
-/* tablet */
+/* media queries */ /* tablet */
 @media (max-width: 992px) {
 }
 
@@ -18,8 +16,14 @@
   .mqPh-w15 {
     width: 15%;
   }
-  .mqPh-w10 {
-    width: 50%;
+  .mqPh-w25 {
+    width: 25%;
+  }
+
+  .p-absolute-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
   }
 }
 

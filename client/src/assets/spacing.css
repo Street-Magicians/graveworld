@@ -1,3 +1,5 @@
+/* classes governing spacing, in alpha order */
+
 .align-center {
   align-items: center;
 }
@@ -11,12 +13,6 @@
   gap: 5px;
 }
 
-.img {
-  margin: auto;
-  display: block;
-  width: 60%;
-}
-
 .f-1 {
   flex: 1;
 }
@@ -25,12 +21,26 @@
   flex-direction: row;
 }
 
+.flex-shrink0 {
+  flex-shrink: 0;
+}
+
+.height2-5 {
+  height: 2.5rem;
+}
+
 .height-100vh {
   height: 100vh;
 }
 
 .height-sm {
   height: 30px;
+}
+
+.img {
+  margin: auto;
+  display: block;
+  width: 60%;
 }
 
 .j-center {
@@ -45,13 +55,16 @@
   margin-bottom: 2rem;
 }
 
-.m-top {
-  margin-top: 2rem;
+.min-height-100vh {
+  min-height: 100vh;
 }
 
-.m-auto {
-  margin: auto;
-  display: block;
+.min-height-75vh {
+  min-height: 75vh;
+}
+
+.m-top {
+  margin-top: 2rem;
 }
 
 .m-regular {
@@ -70,15 +83,24 @@
   margin-top: 40px;
 }
 
+.p-absolute-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .p-bottom {
   position: bottom;
   width: 100%;
 }
 
-.p-absolute {
-  position: absolute;
+.p-relative {
+  position: relative;
+}
+
+.p-sticky {
+  position: sticky;
   bottom: 0;
-  width: 100%;
 }
 
 .s-between {
