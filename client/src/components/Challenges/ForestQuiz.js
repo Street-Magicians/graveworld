@@ -80,6 +80,12 @@ const ForestQuiz = () => {
     // function handleUpdateStamina() {
   };
 
+  const handleSelection = () => {
+    setCurrentQuestion(0);
+    setShowQuizEnd(false);
+    setScore(0);
+  };
+
   return (
     <section className="box mx-4 my-2">
       {/* if ShowQuizEnd is true (once all questions have been answered), display message */}
@@ -100,7 +106,7 @@ const ForestQuiz = () => {
             <>
               <p className="c-navy m-2">"Keep at it, I know you can do it; my friends need your help!"</p>
               <Button link="/quest">Return to Quests</Button>
-              <Button link="/theforest">Try Again</Button>
+              <Button handleSelection={handleSelection}>Try Again</Button>
             </>
           )}
         </div>

@@ -77,6 +77,12 @@ const GraveyardQuiz = () => {
     localStorage.setItem("tokens", JSON.stringify(tokenArray));
   };
 
+  const handleSelection = () => {
+    setCurrentQuestion(0);
+    setShowQuizEnd(false);
+    setScore(0);
+  };
+
   // function handleUpdateStamina() {}
 
   return (
@@ -100,7 +106,7 @@ const GraveyardQuiz = () => {
             <>
               <p className="c-navy m-2">"'Yer no fun at all," the ghostly pirate says, "I'm not lettin' ye outta this 'ol brig until ye play with some heart!"</p>
               <Button link="/quest">Return to Quests</Button>
-              <Button link="/theruin">Try Again</Button>
+              <Button handleSelection={handleSelection}>Try Again</Button>
             </>
           )}
         </div>
