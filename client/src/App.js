@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
@@ -12,6 +17,7 @@ import Layout from "./components/Layout";
 import Header from "./components/Header";
 import AccountBox from "./components/AccountBox";
 import AccountProvider from "./components/AccountBox/accountContext";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 // pages
 import Signup from "./pages/Signup";
@@ -84,33 +90,38 @@ function App() {
                   {" "}
                   Play Music
                 </button>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route
-                    path="/quest"
-                    element={<Quest handleMusicChange={handleMusicChange} />}
-                  />
-                  <Route
-                    path="/theruin"
-                    element={<TheRuin handleMusicChange={handleMusicChange} />}
-                  />
-                  <Route
-                    path="/thegraveyard"
-                    element={
-                      <TheGraveyard handleMusicChange={handleMusicChange} />
-                    }
-                  />
-                  <Route
-                    path="/theforest"
-                    element={
-                      <TheForest handleMusicChange={handleMusicChange} />
-                    }
-                  />
-                  <Route path="/ending" element={<Ending />} />
-                </Routes>
+                <ScrollToTop>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route
+                      path="/quest"
+                      element={<Quest handleMusicChange={handleMusicChange} />}
+                    />
+                    <Route
+                      path="/theruin"
+                      element={
+                        <TheRuin handleMusicChange={handleMusicChange} />
+                      }
+                    />
+                    <Route
+                      path="/thegraveyard"
+                      element={
+                        <TheGraveyard handleMusicChange={handleMusicChange} />
+                      }
+                    />
+                    <Route
+                      path="/theforest"
+                      element={
+                        <TheForest handleMusicChange={handleMusicChange} />
+                      }
+                    />
+                    <Route path="/ending" element={<Ending />} />
+                  </Routes>
+                </ScrollToTop>
+
                 <Footer />
               </Layout>
             </Provider>
