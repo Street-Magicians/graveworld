@@ -19,8 +19,4 @@ Button.defaultProps = {
   children: "Click Me",
 };
 
-Button.ProTypes = {
-  text: PropTypes.string.isRequired,
-};
-
 export default Button;
