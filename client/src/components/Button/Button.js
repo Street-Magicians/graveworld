@@ -9,7 +9,7 @@ const Button = ({ children, handleSelection, link, className }) => {
       </button>
     </Link>
   ) : (
-    <button type="button" onClick={handleSelection} className={className ? className : "button b-teal c-pink f-1 has-text-weight-semibold m-2"}>
+    <button type="button" onClick={handleSelection} className={className ? className : "button b-teal c-white f-1 has-text-weight-semibold m-2"}>
       {children}
     </button>
   );
