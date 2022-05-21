@@ -1,8 +1,7 @@
 /* elements */
 html {
-  /* background-image: url("../assets/images/backgrounds/creepy.png"); */
   background-color: var(--navy);
-  background-size: cover;
+  /* background-size: cover; */
 }
 
 h1 {
@@ -50,4 +49,16 @@ img:hover {
 
 .b-red {
   background-color: rgb(153, 37, 37);
+}
+
+.chooseMe:hover {
+  cursor: pointer;
+}
+
+.chooseMe:active {
+  transform: translateY(4px);
+}
+
+.chooseMe:focus {
+  filter: drop-shadow(0 0 0.75rem var(--rose));
 }

@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 
-const DesertQuiz = () => {
+const ForestQuiz = () => {
   const questions = [
     {
-      questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
+      questionText: "My towers are the highest in the land, yet once I was but a grain of sand. Born from crashing planes of mass, cut by rivers running past  ",
       answerOptions: [
-        { answerText: "River", isCorrect: false },
-        { answerText: "Volcano", isCorrect: true },
-        { answerText: "Hurricane", isCorrect: false },
-        { answerText: "Earthquake", isCorrect: false },
+        { answerText: "Mountains", isCorrect: true },
+        { answerText: "Skyscrapers", isCorrect: false },
+        { answerText: "Tornados", isCorrect: false },
+        { answerText: "Trees", isCorrect: false },
       ],
     },
     {
-      questionText: "You love to watch me rise from sleep, but look my way and you will weep. You need me to have life at all, but as I grow you'll one day fall.",
+      questionText: "I’m as light as can be but surprisingly strong. I can be small and soft or sturdy and long. I float like a whisper light through the air, I can be any color of plain or flair",
       answerOptions: [
-        { answerText: "A Dog", isCorrect: false },
-        { answerText: "A Baby", isCorrect: false },
-        { answerText: "Dreams", isCorrect: false },
-        { answerText: "The Sun", isCorrect: true },
+        { answerText: "Spider Silk", isCorrect: false },
+        { answerText: "A Whisper", isCorrect: false },
+        { answerText: "Feathers", isCorrect: true },
+        { answerText: "Clouds", isCorrect: false },
       ],
     },
     {
       questionText:
-        "I'm looking for my heart, it's red through and through. It has no mouth, but would swiftly consume you. It fears water but befriends the breeze. If you find it, I will be at ease",
+        "My feet sink through the ground while I reach to the sky, I offer my children to those who pass by. I start very small but am a giant fulfilled, I will never die unless I am killed",
       answerOptions: [
-        { answerText: "Rubies", isCorrect: false },
-        { answerText: "Flamin' Hot Cheetos", isCorrect: false },
-        { answerText: "Fire", isCorrect: true },
-        { answerText: "Light", isCorrect: false },
+        { answerText: "Leaves", isCorrect: false },
+        { answerText: "A Flag", isCorrect: false },
+        { answerText: "Hope", isCorrect: false },
+        { answerText: "Trees", isCorrect: true },
       ],
     },
   ];
@@ -64,16 +64,16 @@ const DesertQuiz = () => {
   }, [score]);
 
   const handleAddToken = () => {
-    // Flame Token object
-    const flameToken = {
-      name: "Flame Token",
-      description: "A ruby-like gem that swirls like magma inside yet is cool to the touch",
-      image: "./../../assets/images/sprites/flameToken.png",
+    // Root Token object
+    const rootToken = {
+      name: "Root Token",
+      description: "A small, hard seed. It’s warm to the touch, as though something is inside! ",
+      image: "./../../assets/images/sprites/rootToken.png",
     };
     // if no existing data, create an array, otherwise convert string to object
     let tokenArray = JSON.parse(localStorage.getItem("tokens")) || [];
     // add flame token to localStorage tokens array
-    tokenArray.push(flameToken);
+    tokenArray.push(rootToken);
     // save to localStorage
     localStorage.setItem("tokens", JSON.stringify(tokenArray));
 
@@ -94,17 +94,17 @@ const DesertQuiz = () => {
           {/* if user answers all questions correctly, display 'success' message, otherwise 'failure' message */}
           {score === 3 ? (
             <>
-              <img src={require("./../../assets/images/sprites/flameToken.png")} alt="an 8-bit rendering of a red swirly gem" className="m-4 w-10 mqPh-w25" />
+              <img src={require("./../../assets/images/sprites/rootToken.png")} alt="an 8-bit rendering of a red swirly gem" className="m-4 w-10 mqPh-w25" />
               <p className="c-navy m-2">
-                Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
-                you their boon: The Flame Token. It looks like some kind of gem that swirls like magma inside yet is cool to the touch. You are one step closer to defeating the Demon Relphax!
+                The being leads you off the path and into the wood, where you help {score} of its friends: An lost mountain goat, an injured kestrel, and thirsty sapling, “Thank you for your aid! You
+                have earned the boon of Bramblestone, Spirit of the Wood! They grant you their boon: The Root Token. You are one step closer to defeating the Demon Relphax!
               </p>
               <Button link="/quest">Return to Quests</Button>
               <Button link="/profile">Return to Profile</Button>
             </>
           ) : (
             <>
-              <p className="c-navy m-2">"Hmmm, that doesn't seem right," the spirit says, "Let's keep trying, though. We'll figure it out soon, I just know it!"</p>
+              <p className="c-navy m-2">"Keep at it, I know you can do it; my friends need your help!"</p>
               <Button link="/quest">Return to Quests</Button>
               <Button handleSelection={handleSelection}>Try Again</Button>
             </>
@@ -136,4 +136,4 @@ const DesertQuiz = () => {
   );
 };
 // export DesertQuiz function
-export default DesertQuiz;
+export default ForestQuiz;

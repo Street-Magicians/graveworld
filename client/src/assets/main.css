@@ -7,10 +7,13 @@
 @import "./buttons.css";
 @import "./app.css";
 
-/* media queries */
-
-/* tablet */
+/* media queries */ /* tablet */
 @media (max-width: 992px) {
+  .p-sticky-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 /* phone */
@@ -18,8 +21,14 @@
   .mqPh-w15 {
     width: 15%;
   }
-  .mqPh-w10 {
-    width: 50%;
+  .mqPh-w25 {
+    width: 25%;
+  }
+
+  .p-sticky-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
   }
 }
 

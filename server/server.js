@@ -24,10 +24,13 @@ app.use("/images", express.static(path.join(__dirname, "../client/images")));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
-// comment these lines out to test apollo queries
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"), function (err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
@@ -37,9 +40,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   db.once("open", () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
-      console.log(
-        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
-      );
+      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     });
   });
 };
