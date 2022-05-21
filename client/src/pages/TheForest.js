@@ -8,7 +8,7 @@ const TheForest = () => {
   //
 
   return (
-    <main>
+    <main className="">
       {/* This section sets the scene for the story */}
       <Title
         title="The Evernight Forest"

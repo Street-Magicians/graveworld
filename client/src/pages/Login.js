@@ -30,7 +30,7 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
+    <main className=" container my-1">
       <Link to="/signup">← Go to Signup</Link>
 
       <h2>Login</h2>
@@ -52,7 +52,7 @@ function Login(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
-    </div>
+    </main>
   );
 }
 

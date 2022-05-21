@@ -9,7 +9,7 @@ const TheRuin = () => {
   //
 
   return (
-    <main className="column">
+    <main className="">
       {/* This section sets the scene for the story */}
       <Title
         title="The Desert Ruin"

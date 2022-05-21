@@ -6,7 +6,6 @@
 @import "./spacing.css";
 @import "./buttons.css";
 @import "./app.css";
-@import "./snackbar.css";
 
 /* media queries */ /* tablet */
 @media (max-width: 992px) {
@@ -19,5 +18,11 @@
   }
   .mqPh-w10 {
     width: 50%;
+  }
+
+  .p-absolute-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
   }
 }

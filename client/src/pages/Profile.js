@@ -5,13 +5,9 @@ import Token from "../assets/images/sprites/placeholder.png";
 
 const Profile = () => {
   return (
-    <main className="column center">
+    <main className="center ">
       <div className="center m-top m-bottom">
-        <img
-          className="j-center center miw-100@sml w-med"
-          src={Char1}
-          alt="Sprite1"
-        ></img>
+        <img className="j-center center miw-100@sml w-med" src={Char1} alt="Sprite1"></img>
         <h1 className="c-white font-reg">Hero Name</h1>
       </div>
       <h2 className="align-center c-white font-reg m-bottom">Spirit Tokens</h2>

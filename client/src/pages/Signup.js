@@ -41,13 +41,7 @@ const BackDrop = styled.div`
   top: -290px;
   left: -70px;
   background: rgb(94, 210, 170);
-  background: linear-gradient(
-    58deg,
-    rgba(94, 210, 170, 1) 13%,
-    rgba(48, 140, 108, 1) 46%,
-    rgba(103, 174, 145, 1) 70%,
-    rgba(132, 205, 180, 1) 100%
-  );
+  background: linear-gradient(58deg, rgba(94, 210, 170, 1) 13%, rgba(48, 140, 108, 1) 46%, rgba(103, 174, 145, 1) 70%, rgba(132, 205, 180, 1) 100%);
 `;
 const HeaderContainer = styled.div`
   width: 100%;
@@ -126,40 +120,22 @@ function Signup(props) {
             <HeaderText>Back</HeaderText>
             <SmallText>Please Sign Up</SmallText>
 
-            <div className="container my-1">
+            <div className=" container my-1">
               <Link to="/login">← Go to Login</Link>
 
               <h2>Signup</h2>
               <form onSubmit={handleFormSubmit}>
                 <div className="flex-row space-between my-2">
                   <label htmlFor="email">Email:</label>
-                  <input
-                    placeholder="youremail@test.com"
-                    name="email"
-                    type="email"
-                    id="email"
-                    onChange={handleChange}
-                  />
+                  <input placeholder="youremail@test.com" name="email" type="email" id="email" onChange={handleChange} />
                 </div>
                 <div className="flex-row space-between my-2">
                   <label htmlFor="pwd">Password:</label>
-                  <input
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    id="pwd"
-                    onChange={handleChange}
-                  />
+                  <input placeholder="******" name="password" type="password" id="pwd" onChange={handleChange} />
                 </div>
                 <div className="flex-row space-between my-2">
                   <label htmlFor="pwd">heroName:</label>
-                  <input
-                    placeholder="******"
-                    name="heroName"
-                    type="text"
-                    id="heroName"
-                    onChange={handleChange}
-                  />
+                  <input placeholder="******" name="heroName" type="text" id="heroName" onChange={handleChange} />
                 </div>
                 <div className="flex-row flex-end">
                   <button type="submit">Submit</button>

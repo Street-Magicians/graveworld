@@ -18,7 +18,7 @@ const Quest = () => {
   }, []);
 
   return (
-    <main>
+    <main className="pb-6">
       {/* Challenge 1: Desert Ruin */}
       <section>
         <Title

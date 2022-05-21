@@ -1,8 +1,7 @@
 /* elements */
 html {
-  /* background-image: url("../assets/images/backgrounds/creepy.png"); */
   background-color: var(--navy);
-  background-size: cover;
+  /* background-size: cover; */
 }
 
 h1 {
