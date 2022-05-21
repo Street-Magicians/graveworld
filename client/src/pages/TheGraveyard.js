@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
+import Overcast from "../img/OVERCAST_AdobeStock_452594013_preview.m4a";
+import Tiger from "../img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 import GraveyardQuiz from "../components/Challenges/GravaeyardQuiz";
 
 // this page hosts The Desert Ruin story and component
-const TheGraveyard = () => {
+const TheGraveyard = ({ handleMusicChange }) => {
+  useEffect(() => {
+    handleMusicChange(Overcast);
+    return () => {
+      handleMusicChange(Tiger);
+    };
+  }, []);
   // challenge TODOs here
   //
 
@@ -20,7 +28,11 @@ const TheGraveyard = () => {
           text2="Well, you're stuck in the brig so it's not like you have much choice. Might as well humor this ghost pirate...who knows, maybe you'll win them over!"
         />
         <figure className="columns is-centered is-mobile  ">
-          <img src={require("../assets/images/sprites/ghost2.png")} alt="an 8-bit rendering of a purple ghost" className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop" />
+          <img
+            src={require("../assets/images/sprites/ghost2.png")}
+            alt="an 8-bit rendering of a purple ghost"
+            className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop"
+          />
         </figure>
 
         <GraveyardQuiz />

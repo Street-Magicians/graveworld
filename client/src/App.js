@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
@@ -23,7 +24,7 @@ import TheForest from "./pages/TheForest";
 import Ending from "./pages/Ending";
 
 // music
-// import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
+import Tiger from "./img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 import Login from "./pages/Login";
 
 const httpLink = createHttpLink({
@@ -46,14 +47,19 @@ const client = new ApolloClient({
 });
 
 function playSong() {
-  if (document.getElementById("audio").muted === true) {
-    document.getElementById("audio").muted = false;
+  const x = document.getElementById("audio");
+  if (x.paused) {
+    x.play();
   } else {
-    document.getElementById("audio").muted = true;
+    x.pause();
   }
 }
 
 function App() {
+  const [musicFile, setMusicFile] = useState(Tiger);
+  const handleMusicChange = (file) => {
+    setMusicFile(file);
+  };
   return (
     <ApolloProvider client={client}>
       <AccountProvider>
@@ -62,12 +68,13 @@ function App() {
             <Provider store={store}>
               <Layout className="App">
                 {/* <Header /> */}
-                {/* <audio
+                <audio
                   style={{ visibility: "hidden" }}
                   id="audio"
                   controls
                   autoPlay={true}
-                  src={Tiger}
+                  src={musicFile}
+                  loop={true}
                   className="center"
                 ></audio>
                 <button
@@ -75,17 +82,33 @@ function App() {
                   onClick={playSong}
                 >
                   {" "}
-                  🔇
-                </button> */}
+                  Play Music
+                </button>
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route path="/quest" element={<Quest />} />
-                  <Route path="/theruin" element={<TheRuin />} />
-                  <Route path="/thegraveyard" element={<TheGraveyard />} />
-                  <Route path="/theforest" element={<TheForest />} />
+                  <Route
+                    path="/quest"
+                    element={<Quest handleMusicChange={handleMusicChange} />}
+                  />
+                  <Route
+                    path="/theruin"
+                    element={<TheRuin handleMusicChange={handleMusicChange} />}
+                  />
+                  <Route
+                    path="/thegraveyard"
+                    element={
+                      <TheGraveyard handleMusicChange={handleMusicChange} />
+                    }
+                  />
+                  <Route
+                    path="/theforest"
+                    element={
+                      <TheForest handleMusicChange={handleMusicChange} />
+                    }
+                  />
                   <Route path="/ending" element={<Ending />} />
                 </Routes>
                 <Footer />

@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ForestQuiz from "../components/Challenges/ForestQuiz";
 import Header from "../components/Header";
 // import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
+import Overcast from "../img/OVERCAST_AdobeStock_452594013_preview.m4a";
+import Tiger from "../img/Tiger-Tracks_AdobeStock_331814277_preview.m4a";
 
 // this page hosts The Desert Ruin story and component
-const TheForest = () => {
+const TheForest = ({ handleMusicChange }) => {
+  useEffect(() => {
+    handleMusicChange(Overcast);
+    return () => {
+      handleMusicChange(Tiger);
+    };
+  }, []);
   // challenge TODOs here
   //
 
@@ -20,7 +28,11 @@ const TheForest = () => {
           text2="Might as well help out, it feels good to do good! And if you're lucky you might just show this spirit that you're worthy of a boon"
         />
         <figure className="columns is-centered is-mobile  ">
-          <img src={require("../assets/images/sprites/ghost3.png")} alt="an 8-bit rendering of a green ghost" className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop" />
+          <img
+            src={require("../assets/images/sprites/ghost3.png")}
+            alt="an 8-bit rendering of a green ghost"
+            className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop"
+          />
         </figure>
 
         <ForestQuiz />
