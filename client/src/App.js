@@ -58,7 +58,7 @@ function App() {
     <ApolloProvider client={client}>
       <AccountProvider>
         <Router>
-          <div className="center height-100vh is-flex-direction-column">
+          <div className="center min-height-100vh p-relative">
             <Provider store={store}>
               <Layout className="App">
                 {/* <Header /> */}

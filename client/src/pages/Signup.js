@@ -146,32 +146,12 @@ function Signup(props) {
                 <div>
                   Choose an Avatar
                   <div className="columns is-mobile">
-                    <img
-                      onClick={() => saveAvatar(1)}
-                      className="column is-6"
-                      src={char1}
-                      alt=""
-                    ></img>
-                    <img
-                      onClick={() => saveAvatar(2)}
-                      className="column is-6"
-                      src={char2}
-                      alt=""
-                    ></img>
+                    <img onClick={() => saveAvatar(1)} className="column is-6" src={char1} alt=""></img>
+                    <img onClick={() => saveAvatar(2)} className="column is-6" src={char2} alt=""></img>
                   </div>
                   <div className="columns is-mobile">
-                    <img
-                      onClick={() => saveAvatar(3)}
-                      className="column is-6"
-                      src={char3}
-                      alt=""
-                    ></img>
-                    <img
-                      onClick={() => saveAvatar(4)}
-                      className="column is-6"
-                      src={char4}
-                      alt=""
-                    ></img>
+                    <img onClick={() => saveAvatar(3)} className="column is-6" src={char3} alt=""></img>
+                    <img onClick={() => saveAvatar(4)} className="column is-6" src={char4} alt=""></img>
                   </div>
                 </div>
 

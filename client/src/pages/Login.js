@@ -114,7 +114,7 @@ function Login(props) {
             <HeaderText>Welcome</HeaderText>
             <HeaderText>Back</HeaderText>
             <SmallText>Please Sign Up</SmallText>
-            <div className="container my-1">
+            <div className="container my-1 ">
               <Link to="/signup">← Go to Signup</Link>
 
               <h2>Login</h2>

@@ -19,12 +19,6 @@
   .mqPh-w25 {
     width: 25%;
   }
-
-  .p-absolute-footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-  }
 }
 
 .opacity {

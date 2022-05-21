@@ -35,7 +35,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <main className="column center">
+    <main className="center">
       <Header></Header>
       <div className="center m-top m-bottom">
         <img className="j-center center miw-100@sml w-med" src={avatarImg} alt="Sprite1"></img>

@@ -6,7 +6,7 @@ import Button from "../components/Button/Button";
 
 const Home = () => {
   return (
-    <main className=" mb-5 min-height-75vh">
+    <main className=" mb-5 min-height-100vh">
       <div className="center m-top m-bottom">
         <img className="j-center center miw-100@sml w-med" src={Logo} alt="Graveworld Logo"></img>
       </div>
