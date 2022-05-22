@@ -1,0 +1,14 @@
+.overlay {
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: white;
+  font-size: 20px;
+  opacity: 1;
+  /* padding: 1rem; */
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
