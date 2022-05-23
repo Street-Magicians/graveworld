@@ -62,15 +62,6 @@ const HeaderText = styled.h2`
     margin-top: 7px:
 `;
 
-const SmallText = styled.h5`
-    color: black;
-    font-weight: 500;
-    font-size: 11px;
-    z-index: 10;
-    margin: 0;
-    margin-top: 7px;
-`;
-
 export const AccountContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -97,7 +88,6 @@ function Signup(props) {
         const token = mutationResponse.data.addUser.token;
         Auth.login(token);
     };
-    //   console.log("here");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -113,7 +103,7 @@ function Signup(props) {
 
     return (
         <>
-            <header className="d-flex m-regular stack s-between">
+            <header className="d-flex m-regular stack j-center">
                 <img className="miw-100@sml w-15" src={Logo} path="/" alt="Graveworld Logo"></img>
             </header>
             <div className="mt-6"></div>
