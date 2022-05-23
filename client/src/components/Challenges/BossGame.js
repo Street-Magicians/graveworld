@@ -33,8 +33,7 @@ const BossGame = () => {
       // return "The tide of battle is in the demon's favor, but not for long!";
       setScore(score - 2);
     } else {
-      // handleBattleWin();
-      setScore(score + 1);
+      setScore(score + 2);
     }
     console.log(score);
   };
@@ -50,10 +49,6 @@ const BossGame = () => {
           handleEnding()
         ) : (
           <>
-            <Title
-              title="Your destiny awaits! Will you be the one to save Graveworld?"
-              text1="Relphax regards you with a cruel gaze. Smoke billows from his nostrils and mouth as he speaks, “You think you can defeat me? You are puny and weak, and I am mighty. Okay then, show me what you’ve got"
-            />
             <figure className="columns is-centered is-mobile  ">
               <img
                 src={require("./../../assets/images/sprites/Demonlord.png")}
