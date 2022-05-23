@@ -34,7 +34,7 @@ const BossGame = () => {
       setScore(score - 2);
     } else {
       // handleBattleWin();
-      setScore(score + 2);
+      setScore(score + 1);
     }
     console.log(score);
   };
