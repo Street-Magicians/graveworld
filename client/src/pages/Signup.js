@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
-import { BoldLink, MutedLink } from "../components/AccountBox/common";
+import { BoldLink } from "../components/AccountBox/common";
 
 import styled from "styled-components";
 import Button from "../components/Button/Button";
@@ -115,7 +115,6 @@ function Signup(props) {
                             <HeaderText>Sign Up</HeaderText>
 
                             <div className=" container my-1">
-                                {/* <h2>Signup</h2> */}
                                 <form onSubmit={handleFormSubmit}>
                                     <div className="flex-row space-between my-2">
                                         <label className="has-text-white" htmlFor="email">
@@ -146,19 +145,14 @@ function Signup(props) {
                                             <img onClick={() => saveAvatar(4)} className="column is-6 chooseMe" src={char4} alt="" tabindex="0" />
                                         </div>
                                     </div>
-
                                     <div className="flex-row flex-end">
                                         <Button>Submit</Button>
                                     </div>
                                 </form>
-                                <MutedLink href="/login">
-                                    {" "}
-                                    Already Have An Account?{" "}
-                                    <BoldLink href="/login" onClick={Login}>
-                                        Login
-                                    </BoldLink>
-                                    <div></div>
-                                </MutedLink>
+                                <BoldLink href="/login" onClick={Login}>
+                                    Login
+                                </BoldLink>
+                                <div></div>
                             </div>
                         </HeaderContainer>
                     </TopContainer>
