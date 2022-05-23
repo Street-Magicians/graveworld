@@ -29,10 +29,10 @@ const TopContainer = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 1.8em;
-    padding-bottom: 5em;
+    // padding-bottom: 5em;
 `;
 
-const BackDrop = styled.div`
+export const BackDrop = styled.div`
     width: 160%;
     height: 550px;
     position: absolute;
@@ -40,10 +40,9 @@ const BackDrop = styled.div`
     flex-direction: column;
     // border-radius: 50%;
     // transform: rotate(60deg);
-    top: -168px;
+    top: -217px;
     left: -70px;
-    background: rgb(94, 210, 170);
-    background: linear-gradient(58deg, rgba(94, 210, 170, 1) 13%, rgba(48, 140, 108, 1) 46%, rgba(103, 174, 145, 1) 70%, rgba(132, 205, 180, 1) 100%);
+    background: rgb(36, 123, 123);
 `;
 const HeaderContainer = styled.div`
     width: 100%;
@@ -67,13 +66,6 @@ const SmallText = styled.h5`
     margin: 0;
     margin-top: 7px;
 `;
-
-// const InnerContainer = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   padding: 0 1.8em;
-// `;
 
 export const AccountContainer = styled.div`
     display: flex;
@@ -128,9 +120,7 @@ function Signup(props) {
                             <SmallText>Please Sign Up</SmallText>
 
                             <div className=" container my-1">
-                                <Link to="/login">← Go to Login</Link>
-
-                                <h2>Signup</h2>
+                                {/* <h2>Signup</h2> */}
                                 <form onSubmit={handleFormSubmit}>
                                     <div className="flex-row space-between my-2">
                                         <label htmlFor="email">Email:</label>
@@ -162,6 +152,7 @@ function Signup(props) {
                                 </form>
                             </div>
                         </HeaderContainer>
+                        <Link to="/login">← Go to Login</Link>
                     </TopContainer>
                 </BoxContainer>
             </AccountContainer>
