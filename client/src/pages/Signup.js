@@ -11,6 +11,7 @@ import char2 from "../assets/images/sprites/char2.png";
 import char3 from "../assets/images/sprites/char3.png";
 import char4 from "../assets/images/sprites/char4.png";
 import Login from "./Login";
+import Logo from "../img/graveworld-logo-real.png";
 
 const BoxContainer = styled.div`
     width: 280px;
@@ -112,6 +113,9 @@ function Signup(props) {
 
     return (
         <>
+            <header className="d-flex m-regular stack s-between">
+                <img className="miw-100@sml w-15" src={Logo} path="/" alt="Graveworld Logo"></img>
+            </header>
             <div className="mt-6"></div>
             <AccountContainer>
                 <BoxContainer>
