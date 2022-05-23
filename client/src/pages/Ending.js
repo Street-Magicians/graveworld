@@ -4,6 +4,11 @@ import Button from "../components/Button/Button";
 import Demon from "../assets/images/sprites/Demonlord.png";
 import Header from "../components/Header";
 
+function clearTokens() {
+  window.localStorage.removeItem("tokens");
+  document.location = "/profile";
+}
+
 const Ending = () => {
   return (
     <main className="mb-5 min-height-100vh center">
@@ -21,7 +26,11 @@ const Ending = () => {
         </h2>
       </div>
       <div className="">
-        <Button children="Play Again?" link="/quest" />
+        <button
+          onClick={() => clearTokens()}
+          className="button b-teal c-pink f-1 has-text-weight-semibold m-2"
+          children="Play Again?"
+        />
       </div>
     </main>
   );
