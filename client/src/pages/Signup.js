@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import { BoldLink, MutedLink } from "../components/AccountBox/common";
+
 import styled from "styled-components";
 import Button from "../components/Button/Button";
 import char1 from "../assets/images/sprites/char1.png";
 import char2 from "../assets/images/sprites/char2.png";
 import char3 from "../assets/images/sprites/char3.png";
 import char4 from "../assets/images/sprites/char4.png";
+import Login from "./Login";
 
 const BoxContainer = styled.div`
     width: 280px;
@@ -40,7 +42,7 @@ export const BackDrop = styled.div`
     flex-direction: column;
     // border-radius: 50%;
     // transform: rotate(60deg);
-    top: -217px;
+    top: -293px;
     left: -70px;
     background: rgb(36, 123, 123);
 `;
@@ -55,7 +57,8 @@ const HeaderText = styled.h2`
     font-weight: 650;
     color: #fff;
     z-index: 10;
-    margin: 0;
+    // margin: 0;
+    margin-top: 7px:
 `;
 
 const SmallText = styled.h5`
@@ -115,26 +118,30 @@ function Signup(props) {
                     <TopContainer>
                         <BackDrop />{" "}
                         <HeaderContainer>
-                            <HeaderText>Welcome</HeaderText>
-                            <HeaderText>Back</HeaderText>
-                            <SmallText>Please Sign Up</SmallText>
+                            <HeaderText>Sign Up</HeaderText>
 
                             <div className=" container my-1">
                                 {/* <h2>Signup</h2> */}
                                 <form onSubmit={handleFormSubmit}>
                                     <div className="flex-row space-between my-2">
-                                        <label htmlFor="email">Email:</label>
+                                        <label className="has-text-white" htmlFor="email">
+                                            Email:
+                                        </label>
                                         <input placeholder="youremail@test.com" name="email" type="email" id="email" onChange={handleChange} />
                                     </div>
                                     <div className="flex-row space-between my-2">
-                                        <label htmlFor="pwd">Password:</label>
+                                        <label className="has-text-white" htmlFor="pwd">
+                                            Password:
+                                        </label>
                                         <input placeholder="******" name="password" type="password" id="pwd" onChange={handleChange} />
                                     </div>
                                     <div className="flex-row space-between my-2">
-                                        <label htmlFor="pwd">heroName:</label>
+                                        <label className="has-text-white" htmlFor="pwd">
+                                            Hero Name:
+                                        </label>
                                         <input placeholder="******" name="heroName" type="text" id="heroName" onChange={handleChange} />
                                     </div>
-                                    <div>
+                                    <div className="has-text-white">
                                         Choose an Avatar
                                         <div className="columns is-mobile">
                                             <img onClick={() => saveAvatar(1)} className="column is-6 chooseMe" src={char1} alt="" tabindex="0" />
@@ -150,9 +157,16 @@ function Signup(props) {
                                         <Button>Submit</Button>
                                     </div>
                                 </form>
+                                <MutedLink href="/login">
+                                    {" "}
+                                    Already Have An Account?{" "}
+                                    <BoldLink href="/login" onClick={Login}>
+                                        Login
+                                    </BoldLink>
+                                    <div></div>
+                                </MutedLink>
                             </div>
                         </HeaderContainer>
-                        <Link to="/login">← Go to Login</Link>
                     </TopContainer>
                 </BoxContainer>
             </AccountContainer>
