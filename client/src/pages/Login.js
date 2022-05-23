@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-// import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 import styled from "styled-components";
@@ -8,7 +7,6 @@ import { BoldLink, MutedLink } from "../components/AccountBox/common";
 import Signup from "./Signup";
 import Button from "../components/Button/Button";
 import { AccountContainer } from "./Signup";
-// import Header from "../components/Header";
 import Logo from "../img/graveworld-logo-real.png";
 
 const BoxContainer = styled.div`
@@ -92,9 +90,11 @@ function Login(props) {
 
     return (
         <>
-            <header className="d-flex m-regular stack s-between">
-                <img className="miw-100@sml w-15" src={Logo} path="/" alt="Graveworld Logo"></img>
-            </header>
+            <div>
+                <header className="d-flex m-regular stack j-center">
+                    <img className="miw-100@sml w-15" src={Logo} path="/" alt="Graveworld Logo"></img>
+                </header>
+            </div>
 
             <div className="mt-6"></div>
             <AccountContainer>
