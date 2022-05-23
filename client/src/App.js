@@ -83,13 +83,12 @@ function App() {
                   loop={true}
                   className="center"
                 ></audio>
-                <button
-                  className="b-none center align-center font-reg j-center"
-                  onClick={playSong}
-                >
-                  {" "}
-                  Play Music
-                </button>
+                <div>
+                  <button className="music-btn" onClick={playSong}>
+                    {" "}
+                    Play Music
+                  </button>
+                </div>
                 <ScrollToTop>
                   <Routes>
                     <Route path="/" element={<Home />} />
