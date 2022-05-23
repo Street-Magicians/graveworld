@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 import styled from "styled-components";
-import { BoldLink, MutedLink } from "../components/AccountBox/common";
+import { BoldLink } from "../components/AccountBox/common";
 import Signup from "./Signup";
 import Button from "../components/Button/Button";
 import { AccountContainer } from "./Signup";
@@ -129,14 +129,10 @@ function Login(props) {
                                         <Button type="submit">Submit</Button>
                                     </div>
                                 </form>
-                                <MutedLink href="#">
-                                    {" "}
-                                    Don't Have An Account?{" "}
-                                    <BoldLink href="/signup" onClick={Signup}>
-                                        Signup
-                                    </BoldLink>
-                                    <div></div>
-                                </MutedLink>
+                                <BoldLink href="/signup" onClick={Signup}>
+                                    Signup
+                                </BoldLink>
+                                <div></div>
                             </div>
                         </HeaderContainer>
                     </TopContainer>
