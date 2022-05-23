@@ -21,6 +21,7 @@ import Profile from "./pages/Profile";
 import TheRuin from "./pages/TheRuin";
 import TheGraveyard from "./pages/TheGraveyard";
 import TheForest from "./pages/TheForest";
+import BossFight from "./pages/BossFight";
 import Ending from "./pages/Ending";
 
 // music
@@ -68,19 +69,8 @@ function App() {
             <Provider store={store}>
               <Layout className="App">
                 {/* <Header /> */}
-                <audio
-                  style={{ visibility: "hidden" }}
-                  id="audio"
-                  controls
-                  autoPlay={true}
-                  src={musicFile}
-                  loop={true}
-                  className="center"
-                ></audio>
-                <button
-                  className="b-none center align-center font-reg j-center"
-                  onClick={playSong}
-                >
+                <audio style={{ visibility: "hidden" }} id="audio" controls autoPlay={true} src={musicFile} loop={true} className="center"></audio>
+                <button className="b-none center align-center font-reg j-center" onClick={playSong}>
                   {" "}
                   Play Music
                 </button>
@@ -89,26 +79,11 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route
-                    path="/quest"
-                    element={<Quest handleMusicChange={handleMusicChange} />}
-                  />
-                  <Route
-                    path="/theruin"
-                    element={<TheRuin handleMusicChange={handleMusicChange} />}
-                  />
-                  <Route
-                    path="/thegraveyard"
-                    element={
-                      <TheGraveyard handleMusicChange={handleMusicChange} />
-                    }
-                  />
-                  <Route
-                    path="/theforest"
-                    element={
-                      <TheForest handleMusicChange={handleMusicChange} />
-                    }
-                  />
+                  <Route path="/quest" element={<Quest handleMusicChange={handleMusicChange} />} />
+                  <Route path="/theruin" element={<TheRuin handleMusicChange={handleMusicChange} />} />
+                  <Route path="/thegraveyard" element={<TheGraveyard handleMusicChange={handleMusicChange} />} />
+                  <Route path="/theforest" element={<TheForest handleMusicChange={handleMusicChange} />} />
+                  <Route path="/bossfight" element={<BossFight />} />
                   <Route path="/ending" element={<Ending />} />
                 </Routes>
                 <Footer />

@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { BoldLink, FormContainer, Input, MutedLink, SubmitButton } from "../components/AccountBox/common";
 import Signup from "./Signup";
 import Button from "../components/Button/Button";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 
 const BoxContainer = styled.div`
   width: 280px;

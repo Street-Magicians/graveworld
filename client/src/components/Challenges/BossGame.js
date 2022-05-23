@@ -1,139 +1,100 @@
-import React, { useState, useEffect } from "react";
-import Button from "../Button/Button";
+import React, { useState } from "react";
 
-const BossFight = () => {
-  const questions = [
-    {
-      questionText: "I am a giant born from the sea, when I speak people flee. My blood destroys wherever it flows, but when it clots my body grows",
-      answerOptions: [
-        { answerText: "River", isCorrect: false },
-        { answerText: "Volcano", isCorrect: true },
-        { answerText: "Hurricane", isCorrect: false },
-        { answerText: "Earthquake", isCorrect: false },
-      ],
-    },
-    {
-      questionText: "You love to watch me rise from sleep, but look my way and you will weep. You need me to have life at all, but as I grow you'll one day fall.",
-      answerOptions: [
-        { answerText: "A Dog", isCorrect: false },
-        { answerText: "A Baby", isCorrect: false },
-        { answerText: "Dreams", isCorrect: false },
-        { answerText: "The Sun", isCorrect: true },
-      ],
-    },
-    {
-      questionText:
-        "I'm looking for my heart, it's red through and through. It has no mouth, but would swiftly consume you. It fears water but befriends the breeze. If you find it, I will be at ease",
-      answerOptions: [
-        { answerText: "Rubies", isCorrect: false },
-        { answerText: "Flamin' Hot Cheetos", isCorrect: false },
-        { answerText: "Fire", isCorrect: true },
-        { answerText: "Light", isCorrect: false },
-      ],
-    },
-  ];
+import Button from "./../Button/Button";
+import Title from "../Title/Title";
 
-  //   state object holds the current question the user is answering. Starts at 0 (the first question)
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  // state object stores whether we want to show score messge
-  const [showQuizEnd, setShowQuizEnd] = useState(false);
-  //   save user score
+// game attack array
+const choices = ["Root Magic", "Flame Magic", "Wave Magic"];
+
+const BossGame = () => {
+  const [userAttack, setUserAttack] = useState("");
+  const [demonAttack, setDemonAttack] = useState("");
   const [score, setScore] = useState(0);
+  // const [showBattleEnd, setShowBattleEnd] = useState(false);
 
-  // function to handles answers
-  const handleAnswerButton = (isCorrect) => {
-    //   shows User a message if answer is correct
-    if (isCorrect) {
+  const play = () => {
+    if (!userAttack) {
+      return;
+    }
+    const demonAttackIndex = Math.floor(Math.random() * choices.length);
+    setDemonAttack(choices[demonAttackIndex]);
+    result();
+  };
+
+  const result = () => {
+    if (demonAttack === userAttack) {
       setScore(score + 1);
-    }
-    // condition checks the length of our questions array before proceeding
-    // Increments current question by 1, save to new variable, set to state
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
+      // return "You're evenly matched...for now!";
+    } else if (
+      (demonAttack === "Root Magic" && userAttack === "Wave Magic") ||
+      (demonAttack === "Flame Magic" && userAttack === "Root Magic") ||
+      (demonAttack === "Wave Magic" && userAttack === "Flame Magic")
+    ) {
+      // return "The tide of battle is in the demon's favor, but not for long!";
+      setScore(score - 2);
     } else {
-      console.log(score);
-      setShowQuizEnd(true);
+      // handleBattleWin();
+      setScore(score + 2);
     }
-  };
-  useEffect(() => {
-    if (score === 3) {
-      // If score = 3 call update user mutation function
-      handleAddToken();
-    }
-  }, [score]);
-
-  const handleAddToken = () => {
-    // Flame Token object
-    const flameToken = {
-      name: "Flame Token",
-      description: "A ruby-like gem that swirls like magma inside yet is cool to the touch",
-      image: "./../../assets/images/sprites/flameToken.png",
-    };
-    // if no existing data, create an array, otherwise convert string to object
-    let tokenArray = JSON.parse(localStorage.getItem("tokens")) || [];
-    // add flame token to localStorage tokens array
-    tokenArray.push(flameToken);
-    // save to localStorage
-    localStorage.setItem("tokens", JSON.stringify(tokenArray));
-
-    // function handleUpdateStamina() {
+    console.log(score);
   };
 
-  const handleSelection = () => {
-    setCurrentQuestion(0);
-    setShowQuizEnd(false);
-    setScore(0);
+  const handleEnding = () => {
+    window.location = "/ending";
   };
 
   return (
-    <section className="box mx-4 my-2">
-      {/* if ShowQuizEnd is true (once all questions have been answered), display message */}
-      {showQuizEnd ? (
-        <div className="has-text-centered">
-          {/* if user answers all questions correctly, display 'success' message, otherwise 'failure' message */}
-          {score === 3 ? (
-            <>
-              <img src={require("./../../assets/images/sprites/flameToken.png")} alt="an 8-bit rendering of a red swirly gem" className="m-4 w-10 mqPh-w25" />
-              <p className="c-navy m-2">
-                Success! You piece together {score} out of {questions.length} clues, and and help the spirit realize their identity: Blazebright, the Spirit of Flames! True to their word, they grant
-                you their boon: The Flame Token. It looks like some kind of gem that swirls like magma inside yet is cool to the touch. You are one step closer to defeating the Demon Relphax!
-              </p>
-              <Button link="/quest">Return to Quests</Button>
-              <Button link="/profile">Return to Profile</Button>
-            </>
-          ) : (
-            <>
-              <p className="c-navy m-2">"Hmmm, that doesn't seem right," the spirit says, "Let's keep trying, though. We'll figure it out soon, I just know it!"</p>
-              <Button link="/quest">Return to Quests</Button>
-              <Button handleSelection={handleSelection}>Try Again</Button>
-            </>
-          )}
-        </div>
-      ) : (
-        // If ShowQuizEnd is not true (and there are more questions), continue quiz
-        <>
-          <div className="has-text-centered">
-            <div className="">
-              <p></p>
-              <p className="has-text-weight-semibold">
-                You are solving clue {currentQuestion + 1}/{questions.length}
-              </p>
+    <>
+      <section className="box mx-4 my-2">
+        {score === 5 ? (
+          handleEnding()
+        ) : (
+          <>
+            <Title
+              title="Your destiny awaits! Will you be the one to save Graveworld?"
+              text1="Relphax regards you with a cruel gaze. Smoke billows from his nostrils and mouth as he speaks, “You think you can defeat me? You are puny and weak, and I am mighty. Okay then, show me what you’ve got"
+            />
+            <figure className="columns is-centered is-mobile  ">
+              <img
+                src={require("./../../assets/images/sprites/Demonlord.png")}
+                alt="an 8-bit rendering of a red horned demon"
+                className="column is-one-third-mobile is-one-fifth-tablet is-one-fifth-desktop"
+              />
+            </figure>
+            <div className="columns m-3 is-centered">
+              <div className="column is-3">
+                <Button onClick={() => setUserAttack("Root Magic")}>Use Root Magic </Button>
+              </div>
+              <div className="column is-3">
+                <Button onClick={() => setUserAttack("Flame Magic")}>Use Flame Magic</Button>
+              </div>
+              <div className="column is-3">
+                <Button onClick={() => setUserAttack("Wave Magic")}>Use Wave Magic</Button>
+              </div>
             </div>
-            <div className="py-4">{questions[currentQuestion].questionText}</div>
-          </div>
-          <div className="columns is-centered is-multiline ">
-            {/* loops through question's answers array and displays as buttons */}
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
-                {answerOption.answerText}
+            <div className="m-3 is-3">
+              <Button className="button b-rose c-white" onClick={play}>
+                Attack the Demon!
+              </Button>
+            </div>
+            <div className="box b-pink">
+              <p className="is-size-4-desktop is-size-4-tablet is-size-6-mobile">
+                You're attacking with: <span className="has-text-weight-bold">{userAttack}</span>
               </p>
-            ))}
-          </div>
-        </>
-      )}
-    </section>
+              <p className="is-size-4-desktop is-size-4-tablet is-size-6-mobile">
+                Demon Relphax is attacking with: <span className="has-text-weight-bold">{demonAttack}</span>
+              </p>
+              <div className="box m-3">
+                <p className="is-size-4-desktop is-size-6-mobile">
+                  You've bested Relphax <span className=" has-text-weight-bold">{score} times</span>!
+                </p>
+              </div>
+            </div>
+          </>
+        )}
+      </section>
+    </>
   );
 };
-// export DesertQuiz function
-export default BossFight;
+
+export default BossGame;

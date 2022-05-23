@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 //import components
-
-import Token from "../assets/images/sprites/placeholder.png";
+// import Token from "../assets/images/sprites/placeholder.png";
 import Flametoken from "../assets/images/sprites/flameToken.png";
 import Roottoken from "../assets/images/sprites/rootToken.png";
 import Wavetoken from "../assets/images/sprites/waveToken.png";

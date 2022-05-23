@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+.d-block {
+  display: block;
+}
+
 .d-flex {
   display: flex;
   gap: 5px;

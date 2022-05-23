@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+// components
 import Header from "../components/Header";
-// import Auth from "../utils/auth";
 import Title from "../components/Title/Title";
 import Card from "../components/Card/Card";
 import Button from "../components/Button/Button";
@@ -16,11 +16,6 @@ const Quest = ({ handleMusicChange }) => {
       handleMusicChange(Tiger);
     };
   }, []);
-
-  // page loads  only if user is logged in, otherwise redirect to login/signup
-  // handleDisplayAvatar (to retrieve and display player avatar as 'return to profile' icon)
-  // handleDisplayTokens (to retrieve and display user's current spirit token images)
-  // handleDemonChallenge (if user has 3 SpiritTokens OR 0 stamina display 'demon challenge component)
 
   // sets tokenArray to state
   const [tokens, setTokens] = useState([]);
@@ -75,12 +70,12 @@ const Quest = ({ handleMusicChange }) => {
               title="Time to Face the Demon"
               text="You have journeyed across Graveworld in search of the Demon Relphax’s lair. With the spirit tokens you have collected, you just may stand a chance at banishing him once and for all. You confront Relphax at last...but will you win?"
             />
-            <Button className="button b-white c-rose mt-2 has-text-weight-semibold" link="/ending">
+            <Button className="button b-white c-rose mt-2 has-text-weight-semibold" link="/bossfight">
               Face Relphax
             </Button>
           </div>
         ) : (
-          <Button className="is-invisible" link="/BossFight">
+          <Button className="is-invisible" link="/bossfight">
             Time to Face the Demon
           </Button>
         )}

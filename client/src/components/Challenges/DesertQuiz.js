@@ -46,19 +46,18 @@ const DesertQuiz = () => {
     if (isCorrect) {
       setScore(score + 1);
     }
-    // condition checks the length of our questions array before proceeding
+    // condition checks the length of questions array before proceeding
     // Increments current question by 1, save to new variable, set to state
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      console.log(score);
       setShowQuizEnd(true);
     }
   };
   useEffect(() => {
     if (score === 3) {
-      // If score = 3 call update user mutation function
+      // If score = 3 add flame token to localStorage array
       handleAddToken();
     }
   }, [score]);
@@ -80,6 +79,7 @@ const DesertQuiz = () => {
     // function handleUpdateStamina() {
   };
 
+  // reset state when user tries challenge again
   const handleSelection = () => {
     setCurrentQuestion(0);
     setShowQuizEnd(false);
