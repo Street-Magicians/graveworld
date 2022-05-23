@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-//import components
 
-import Token from "../assets/images/sprites/placeholder.png";
+// components
 import Flametoken from "../assets/images/sprites/flameToken.png";
 import Roottoken from "../assets/images/sprites/rootToken.png";
 import Wavetoken from "../assets/images/sprites/waveToken.png";
@@ -16,7 +15,9 @@ const Profile = () => {
   const char3 = require("../assets/images/sprites/char3.png");
   const char4 = require("../assets/images/sprites/char4.png");
 
-  const [avatarImg, setAvatarImg] = useState("../assets/images/sprites/char1.png");
+  const [avatarImg, setAvatarImg] = useState(
+    "../assets/images/sprites/char1.png"
+  );
 
   const [earnedTk, setEarnedTk] = useState([]);
   const [userHero, setUserHero] = useState("");
@@ -39,8 +40,16 @@ const Profile = () => {
       <Header></Header>
       <main className="center">
         <div className="center m-top m-bottom">
-          <img className="j-center center miw-100@sml w-med" src={avatarImg} alt="Sprite1"></img>
-          {loading ? <div>loading</div> : <h1 className="c-white font-reg">{userHero}</h1>}
+          <img
+            className="j-center center miw-100@sml w-med"
+            src={avatarImg}
+            alt="Sprite1"
+          ></img>
+          {loading ? (
+            <div>loading</div>
+          ) : (
+            <h1 className="c-white font-reg">{userHero}</h1>
+          )}
 
           <Button className="" link="/quest" type="submit">
             Start Your Quest
@@ -48,20 +57,35 @@ const Profile = () => {
         </div>
         <h2 className="c-white font-reg m-bottom">Spirit Tokens</h2>
         <div className="d-flex m-bottom">
-          {earnedTk?.filter((token) => token.name === "Flame Token").length > 0 ? (
+          {earnedTk?.filter((token) => token.name === "Flame Token").length >
+          0 ? (
             <img className="img w-10 " src={Flametoken} alt="Sprite1"></img>
           ) : (
-            <img className="img w-10 opacity" src={Flametoken} alt="Sprite1"></img>
+            <img
+              className="img w-10 opacity"
+              src={Flametoken}
+              alt="Sprite1"
+            ></img>
           )}
-          {earnedTk?.filter((token) => token.name === "Root Token").length > 0 ? (
+          {earnedTk?.filter((token) => token.name === "Root Token").length >
+          0 ? (
             <img className="img w-10 " src={Roottoken} alt="Sprite1"></img>
           ) : (
-            <img className="img w-10 opacity" src={Roottoken} alt="Sprite1"></img>
+            <img
+              className="img w-10 opacity"
+              src={Roottoken}
+              alt="Sprite1"
+            ></img>
           )}
-          {earnedTk?.filter((token) => token.name === "Wave Token").length > 0 ? (
+          {earnedTk?.filter((token) => token.name === "Wave Token").length >
+          0 ? (
             <img className="img w-10 " src={Wavetoken} alt="Sprite1"></img>
           ) : (
-            <img className="img w-10 opacity" src={Wavetoken} alt="Sprite1"></img>
+            <img
+              className="img w-10 opacity"
+              src={Wavetoken}
+              alt="Sprite1"
+            ></img>
           )}
         </div>
       </main>

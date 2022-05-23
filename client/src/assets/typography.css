@@ -16,7 +16,27 @@
   font-weight: 700;
 }
 
+.music-btn {
+  font-family: "Roboto Condensed", sans-serif;
+  justify-content: right;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 40%;
+}
+
+.music-btn:hover {
+  font-weight: 700;
+  opacity: 80%;
+}
+
 /* Atomic classes in alpha order */
+
+a:hover {
+  color: white;
+}
 
 .c-lavender {
   background-color: var(--lavender);
