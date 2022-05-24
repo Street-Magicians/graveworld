@@ -44,7 +44,7 @@ const Profile = () => {
           <section className="box m-6">
             <Card
               title="Welcome to Graveworld!"
-              text="A realm of magic, mystery, and adventure awaits you. Do you have what it takes to save the realm from the deadly foe who lurk in the shadows? Sign up to start your quest and find out!"
+              text="A realm of magic, mystery, and adventure awaits you. Do you have what it takes to save the realm from the deadly foe who lurk in the shadows? Start your quest below and find out!"
             />
             <Button className="" link="/quest" type="submit">
               Start Your Quest
