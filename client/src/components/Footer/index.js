@@ -1,29 +1,54 @@
-import PropTypes from "prop-types";
+import Jon from "../../assets/images/team/jon.gif";
+import Gwen from "../../assets/images/team/gwen.gif";
+import Sarah from "../../assets/images/team/sarah.gif";
+import Mousa from "../../assets/images/team/mousa.gif";
+import Stephen from "../../assets/images/team/stephen.gif";
 
 const Footer = () => {
   return (
-    <footer className="footer p-6 p-sticky-footer b-lavender">
-      <div className="content has-text-centered">
+    <footer className="">
+      <hr></hr>
+      <div className="">
         <p className="">
-          <strong>Graveworld</strong> made with ❤️ by{" "}
-          <a href="https://github.com/gwenewasko" target="_blank" rel="noreferrer">
-            Gwen
-          </a>
-          ,{" "}
-          <a href="https://github.com/Jonchirinos" target="_blank" rel="noreferrer">
-            Jon
-          </a>
-          ,{" "}
-          <a href="https://github.com/mhaddadin1" target="_blank" rel="noreferrer">
-            Mousa
-          </a>
-          ,{" "}
-          <a href="https://github.com/Sarahlophus" target="_blank" rel="noreferrer">
-            Sarah
-          </a>
-          , and{" "}
-          <a href="https://github.com/smarr2198" target="_blank" rel="noreferrer">
-            Stephen
+          Graveworld made with ❤️ and street magic by: <br></br>
+          <a
+            href="https://github.com/gwenewasko"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={Gwen} alt="team pic Gwen" className="portrait"></img>
+          </a>{" "}
+          <a
+            href="https://github.com/Jonchirinos"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={Jon} alt="team pic Jon" className="portrait"></img>
+          </a>{" "}
+          <a
+            href="https://github.com/mhaddadin1"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={Mousa} alt="team pic Mousa" className="portrait"></img>
+          </a>{" "}
+          <a
+            href="https://github.com/Sarahlophus"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={Sarah} alt="team pic Sarah" className="portrait"></img>
+          </a>{" "}
+          <a
+            href="https://github.com/smarr2198"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={Stephen}
+              alt="team pic Stephen"
+              className="portrait"
+            ></img>
           </a>
         </p>
       </div>

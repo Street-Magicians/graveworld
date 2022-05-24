@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-//import components
-// import Token from "../assets/images/sprites/placeholder.png";
+
+// components
 import Flametoken from "../assets/images/sprites/flameToken.png";
 import Roottoken from "../assets/images/sprites/rootToken.png";
 import Wavetoken from "../assets/images/sprites/waveToken.png";
 import Button from "../components/Button/Button";
 import Header from "../components/Header";
+import Card from "../components/Card/Card";
 import { QUERY_USER } from "../utils/queries";
 
 const Profile = () => {
@@ -40,10 +41,15 @@ const Profile = () => {
         <div className="center m-top m-bottom">
           <img className="j-center center miw-100@sml w-15" src={avatarImg} alt="Sprite1"></img>
           {loading ? <div>loading</div> : <h1 className="c-white font-reg">{userHero}</h1>}
-
-          <Button className="" link="/quest" type="submit">
-            Start Your Quest
-          </Button>
+          <section className="box m-6">
+            <Card
+              title="Welcome to Graveworld!"
+              text="A realm of magic, mystery, and adventure awaits you. Do you have what it takes to save the realm from the deadly foe who lurk in the shadows? Sign up to start your quest and find out!"
+            />
+            <Button className="" link="/quest" type="submit">
+              Start Your Quest
+            </Button>
+          </section>
         </div>
         <h2 className="c-white font-reg m-bottom">Spirit Tokens</h2>
         <div className="d-flex m-bottom">

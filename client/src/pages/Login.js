@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 import styled from "styled-components";
-import { BoldLink, FormContainer, Input, MutedLink, SubmitButton } from "../components/AccountBox/common";
+import { BoldLink } from "../components/AccountBox/common";
 import Signup from "./Signup";
 import Button from "../components/Button/Button";
-// import Header from "../components/Header";
+import { AccountContainer } from "./Signup";
+import Logo from "../img/graveworld-logo-real.png";
 
 const BoxContainer = styled.div`
   width: 280px;
-  min-height: 550px;
+  // min-height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,12 +24,10 @@ const BoxContainer = styled.div`
 `;
 const TopContainer = styled.div`
   width: 100%;
-  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 0 1.8em;
-  padding-bottom: 5em;
 `;
 
 const BackDrop = styled.div`
@@ -38,12 +36,9 @@ const BackDrop = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  border-radius: 50%;
-  transform: rotate(60deg);
-  top: -290px;
+  top: -235px;
   left: -70px;
-  background: rgb(94, 210, 170);
-  background: linear-gradient(58deg, rgba(94, 210, 170, 1) 13%, rgba(48, 140, 108, 1) 46%, rgba(103, 174, 145, 1) 70%, rgba(132, 205, 180, 1) 100%);
+  background: rgb(36, 123, 123);
 `;
 const HeaderContainer = styled.div`
   width: 100%;
@@ -54,31 +49,18 @@ const HeaderContainer = styled.div`
 const HeaderText = styled.h2`
   font-size: 35px;
   font-weight: 650;
-  line-height: 4;
   color: #fff;
   z-index: 10;
   margin: 0;
 `;
 
 const SmallText = styled.h5`
-  color: black;
+  color: white;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 15px;
   z-index: 10;
   margin: 0;
   margin-top: 7px;
-`;
-
-const InnerContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0 1.8em;
-`;
-
-const AccountContainer = styled.div`
-  display: flex;
-  justify-content: center;
 `;
 
 function Login(props) {
@@ -108,6 +90,12 @@ function Login(props) {
 
   return (
     <>
+      <div>
+        <header className="d-flex m-regular stack j-center">
+          <img className="miw-100@sml w-15" src={Logo} path="/" alt="Graveworld Logo"></img>
+        </header>
+      </div>
+
       <div className="mt-6"></div>
       <AccountContainer>
         <BoxContainer>
@@ -116,18 +104,20 @@ function Login(props) {
             <HeaderContainer>
               <HeaderText>Welcome</HeaderText>
               <HeaderText>Back</HeaderText>
-              <SmallText>Please Sign Up</SmallText>
-              <div className="container my-1">
-                <Link to="/signup">← Go to Signup</Link>
 
-                <h2>Login</h2>
+              <div className="container my-1">
+                <SmallText>Login</SmallText>
                 <form onSubmit={handleFormSubmit}>
                   <div className="flex-row space-between my-2">
-                    <label htmlFor="email">Email address:</label>
+                    <label className="has-text-white" htmlFor="email">
+                      Email address:
+                    </label>
                     <input placeholder="youremail@test.com" name="email" type="email" id="email" onChange={handleChange} />
                   </div>
                   <div className="flex-row space-between my-2">
-                    <label htmlFor="pwd">Password:</label>
+                    <label className="has-text-white" htmlFor="pwd">
+                      Password:
+                    </label>
                     <input placeholder="******" name="password" type="password" id="pwd" onChange={handleChange} />
                   </div>
                   {error ? (
@@ -139,20 +129,15 @@ function Login(props) {
                     <Button type="submit">Submit</Button>
                   </div>
                 </form>
-                <MutedLink href="#">
-                  {" "}
-                  Don't have an accoun?{" "}
-                  <BoldLink href="/signup" onClick={Signup}>
-                    Signup
-                  </BoldLink>
-                </MutedLink>
+                <BoldLink href="/signup" onClick={Signup}>
+                  Signup
+                </BoldLink>
+                <div></div>
               </div>
             </HeaderContainer>
           </TopContainer>
         </BoxContainer>
       </AccountContainer>
-
-      <div className="min-height-75vh"></div>
     </>
   );
 }

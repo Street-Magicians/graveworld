@@ -4,11 +4,10 @@ import Button from "../components/Button/Button";
 import Demon from "../assets/images/sprites/Demonlord.png";
 import Title from "../components/Title/Title";
 
-const handleSelection = () => {
-  localStorage.removeItem("tokens");
-  localStorage.removeItem("battleResult");
-  window.location = "/profile";
-};
+function handleSelection() {
+  window.localStorage.removeItem("tokens");
+  document.location = "/profile";
+}
 
 const Ending = () => {
   return (
