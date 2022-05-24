@@ -46,19 +46,18 @@ const DesertQuiz = () => {
     if (isCorrect) {
       setScore(score + 1);
     }
-    // condition checks the length of our questions array before proceeding
+    // condition checks the length of questions array before proceeding
     // Increments current question by 1, save to new variable, set to state
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      console.log(score);
       setShowQuizEnd(true);
     }
   };
   useEffect(() => {
     if (score === 3) {
-      // If score = 3 call update user mutation function
+      // If score = 3 add flame token to localStorage array
       handleAddToken();
     }
   }, [score]);
@@ -80,6 +79,7 @@ const DesertQuiz = () => {
     // function handleUpdateStamina() {
   };
 
+  // reset state when user tries challenge again
   const handleSelection = () => {
     setCurrentQuestion(0);
     setShowQuizEnd(false);
@@ -124,8 +124,8 @@ const DesertQuiz = () => {
           </div>
           <div className="columns is-centered is-multiline ">
             {/* loops through question's answers array and displays as buttons */}
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
+            {questions[currentQuestion].answerOptions.map((answerOption, i) => (
+              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold" key={i}>
                 {answerOption.answerText}
               </p>
             ))}
