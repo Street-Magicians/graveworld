@@ -1,44 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "./../Button/Button";
-// import Title from "../Title/Title";
+import Title from "../Title/Title";
 
 // game attack array
 const choices = ["Root Magic", "Flame Magic", "Wave Magic"];
 
-const BossGame = (event) => {
+const BossGame = () => {
   // set initial states
-  // const [userAttack, setUserAttack] = useState("");
-  // const [demonAttack, setDemonAttack] = useState("");
+  const [userAttack, setUserAttack] = useState("");
+  const [demonAttack, setDemonAttack] = useState("");
   const [score, setScore] = useState(0);
-  let demonAttackIndex = Math.floor(Math.random() * choices.length);
-  let demonAttack = choices[demonAttackIndex];
-  let userAttack = event.target.getAttribute("value");
 
   // function determines Demon Attack choice
-  // const play = () => {
-  //   if (!userAttack) {
-  //     return;
-  //   } else {
-  //     const demonAttackIndex = Math.floor(Math.random() * choices.length);
-  //     setDemonAttack(choices[demonAttackIndex]);
-  //     console.log(demonAttack);
-  //     console.log(userAttack);
-  //     result();
-  //   }
-  // };
+  const play = () => {
+    if (!userAttack) {
+      return;
+    } else {
+      const demonAttackIndex = Math.floor(Math.random() * choices.length);
+      setDemonAttack(choices[demonAttackIndex]);
+      console.log(demonAttack);
+      console.log(userAttack);
+      result();
+    }
+  };
 
-  // useEffect(() => {
-  //   play();
-  // }, [userAttack]);
+  useEffect(() => {
+    play();
+  }, [userAttack]);
 
-  // useEffect(() => {
-  //   result();
-  // }, [demonAttack]);
+  useEffect(() => {
+    result();
+  }, [demonAttack]);
 
   // function determines game mechanic, changes state based on results
-  const play = () => {
-    console.log(userAttack);
+  const result = () => {
     let fightScore = score;
     if (demonAttack === userAttack) {
       setScore(fightScore);
@@ -49,7 +45,7 @@ const BossGame = (event) => {
       (demonAttack === "Wave Magic" && userAttack === "Flame Magic")
     ) {
       console.log("Fail");
-      setScore(fightScore - 1);
+      setScore(0);
     } else {
       setScore(fightScore + 1);
       console.log("Win");
@@ -66,7 +62,7 @@ const BossGame = (event) => {
     <>
       {/* when user score = 3 run handleEnding function */}
       <section className="box mx-4 my-2">
-        {score === 3 ? (
+        {score === 2 ? (
           handleEnding()
         ) : (
           <>
@@ -80,26 +76,20 @@ const BossGame = (event) => {
             <div className="columns m-3 is-centered">
               {/* user's attack choices sets userState as that attack */}
               <div className="column is-3">
-                <Button onClick={userAttack} data-value="Root Magic">
-                  Use Root Magic{" "}
-                </Button>
+                <Button onClick={() => setUserAttack("Root Magic")}>Use Root Magic </Button>
               </div>
               <div className="column is-3">
-                <Button onClick={userAttack} data-value="Flame Magic">
-                  Use Flame Magic
-                </Button>
+                <Button onClick={() => setUserAttack("Flame Magic")}>Use Flame Magic</Button>
               </div>
               <div className="column is-3">
-                <Button onClick={userAttack} data-value="Wave Magic">
-                  Use Wave Magic
-                </Button>
+                <Button onClick={() => setUserAttack("Wave Magic")}>Use Wave Magic</Button>
               </div>
             </div>
             <div className="m-3 is-3">
               {/* Attack button calls Play function */}
-              <Button className="button b-rose c-white" onClick={play}>
+              {/* <Button className="button b-rose c-white" onClick={play}>
                 Attack the Demon!
-              </Button>
+              </Button> */}
             </div>
             <div className="box b-pink">
               <p className="is-size-4-desktop is-size-4-tablet is-size-6-mobile">
@@ -110,7 +100,7 @@ const BossGame = (event) => {
               </p>
               <div className="box m-3">
                 <p className="is-size-4-desktop is-size-6-mobile">
-                  You've bested Relphax <span className=" has-text-weight-bold">{score} times</span>!
+                  Your win streak is: <span className=" has-text-weight-bold">{score} times</span>!
                 </p>
               </div>
             </div>
