@@ -55,6 +55,10 @@ img:hover {
   cursor: pointer;
 }
 
+.bdr-ridge {
+  border: 8px ridge var(--teal);
+}
+
 .chooseMe:active {
   transform: translateY(4px);
 }
