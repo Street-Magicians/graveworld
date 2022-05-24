@@ -71,6 +71,10 @@ footer {
   min-height: 75vh;
 }
 
+.portrait {
+  max-height: 30px;
+}
+
 .m-top {
   margin-top: 2rem;
 }
