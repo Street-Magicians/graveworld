@@ -1,51 +1,72 @@
 import React, { useState } from "react";
 
 import Button from "./../Button/Button";
-import Title from "../Title/Title";
+// import Title from "../Title/Title";
 
 // game attack array
 const choices = ["Root Magic", "Flame Magic", "Wave Magic"];
 
-const BossGame = () => {
-  const [userAttack, setUserAttack] = useState("");
-  const [demonAttack, setDemonAttack] = useState("");
+const BossGame = (event) => {
+  // set initial states
+  // const [userAttack, setUserAttack] = useState("");
+  // const [demonAttack, setDemonAttack] = useState("");
   const [score, setScore] = useState(0);
-  // const [showBattleEnd, setShowBattleEnd] = useState(false);
+  let demonAttackIndex = Math.floor(Math.random() * choices.length);
+  let demonAttack = choices[demonAttackIndex];
+  let userAttack = event.target.getAttribute("value");
 
+  // function determines Demon Attack choice
+  // const play = () => {
+  //   if (!userAttack) {
+  //     return;
+  //   } else {
+  //     const demonAttackIndex = Math.floor(Math.random() * choices.length);
+  //     setDemonAttack(choices[demonAttackIndex]);
+  //     console.log(demonAttack);
+  //     console.log(userAttack);
+  //     result();
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   play();
+  // }, [userAttack]);
+
+  // useEffect(() => {
+  //   result();
+  // }, [demonAttack]);
+
+  // function determines game mechanic, changes state based on results
   const play = () => {
-    if (!userAttack) {
-      return;
-    }
-    const demonAttackIndex = Math.floor(Math.random() * choices.length);
-    setDemonAttack(choices[demonAttackIndex]);
-    result();
-  };
-
-  const result = () => {
+    console.log(userAttack);
+    let fightScore = score;
     if (demonAttack === userAttack) {
-      setScore(score + 1);
-      // return "You're evenly matched...for now!";
+      setScore(fightScore);
+      console.log("Tie");
     } else if (
       (demonAttack === "Root Magic" && userAttack === "Wave Magic") ||
       (demonAttack === "Flame Magic" && userAttack === "Root Magic") ||
       (demonAttack === "Wave Magic" && userAttack === "Flame Magic")
     ) {
-      // return "The tide of battle is in the demon's favor, but not for long!";
-      setScore(score - 2);
+      console.log("Fail");
+      setScore(fightScore - 1);
     } else {
-      setScore(score + 2);
+      setScore(fightScore + 1);
+      console.log("Win");
     }
-    console.log(score);
+    console.log(fightScore);
   };
 
+  // when user score = 3 navigate to ending page for story conclusion
   const handleEnding = () => {
     window.location = "/ending";
   };
 
   return (
     <>
+      {/* when user score = 3 run handleEnding function */}
       <section className="box mx-4 my-2">
-        {score === 5 ? (
+        {score === 3 ? (
           handleEnding()
         ) : (
           <>
@@ -57,17 +78,25 @@ const BossGame = () => {
               />
             </figure>
             <div className="columns m-3 is-centered">
+              {/* user's attack choices sets userState as that attack */}
               <div className="column is-3">
-                <Button onClick={() => setUserAttack("Root Magic")}>Use Root Magic </Button>
+                <Button onClick={userAttack} data-value="Root Magic">
+                  Use Root Magic{" "}
+                </Button>
               </div>
               <div className="column is-3">
-                <Button onClick={() => setUserAttack("Flame Magic")}>Use Flame Magic</Button>
+                <Button onClick={userAttack} data-value="Flame Magic">
+                  Use Flame Magic
+                </Button>
               </div>
               <div className="column is-3">
-                <Button onClick={() => setUserAttack("Wave Magic")}>Use Wave Magic</Button>
+                <Button onClick={userAttack} data-value="Wave Magic">
+                  Use Wave Magic
+                </Button>
               </div>
             </div>
             <div className="m-3 is-3">
+              {/* Attack button calls Play function */}
               <Button className="button b-rose c-white" onClick={play}>
                 Attack the Demon!
               </Button>

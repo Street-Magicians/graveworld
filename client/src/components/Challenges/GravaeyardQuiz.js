@@ -124,8 +124,8 @@ const GraveyardQuiz = () => {
           </div>
           <div className="columns is-centered is-multiline ">
             {/* loops through question's answers array and displays as buttons */}
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold">
+            {questions[currentQuestion].answerOptions.map((answerOption, i) => (
+              <p onClick={() => handleAnswerButton(answerOption.isCorrect)} className="b-teal c-pink column f-1 font-reg is-2 button m-2 mx-2 has-text-weight-semibold" key={i}>
                 {answerOption.answerText}
               </p>
             ))}
